@@ -50,11 +50,11 @@ public class Launcher extends Subsystem {
     
     public boolean IsShooterArmDown() {
 	
-	return !((boolean)(latchSwitch.get()));
+	return (boolean)(latchSwitch.get());
 	
     }
     public boolean IsWinchUp() {
-            return !((boolean)(winchUpSwitch.get()));
+        return (boolean)(winchUpSwitch.get());
     }
     public boolean IsBall() {
             if (ballSensor.getAverageValue() > 100) { /* Whatever threshold indicates a ball */
@@ -63,11 +63,18 @@ public class Launcher extends Subsystem {
                     return false;
             }
     }
-    public void RunWinchAtSpeed(float speed) {
+    public void RunWinchAtSpeed(double speed) {
             winchMotor.set(speed);
     }
     public void SetLatch(boolean release) {
             latch.set(release);
+    }
+    public void SetTension(boolean tensioned) {
+        if (tensioned) {
+            tension.set(DoubleSolenoid.Value.kForward);
+        } else {
+            tension.set(DoubleSolenoid.Value.kReverse);
+        }
     }
 }
 

@@ -18,7 +18,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class Auton6PartialStartCold extends CommandGroup {
     
     public  Auton6PartialStartCold() {
-        // Add Commands here:
+        // add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());
         // these will run in order.
@@ -34,5 +34,19 @@ public class Auton6PartialStartCold extends CommandGroup {
         // e.g. if Command1 requires chassis, and Command2 requires arm,
         // a CommandGroup containing them would require both the chassis and the
         // arm.
+        
+        addSequential(new DriveToAngle(40));
+	
+	addSequential(new Shoot(false));
+	
+	addParallel(new UnwindWinch());
+	addSequential(new DriveToAngle(-40));
+	
+	addSequential(new RunRollerBar());
+	
+	addSequential(new Shoot(false));
+	
+	addParallel(new UnwindWinch());
+	addSequential(new ArcadeDriveWithInputs(-0.75,0,3));
     }
 }

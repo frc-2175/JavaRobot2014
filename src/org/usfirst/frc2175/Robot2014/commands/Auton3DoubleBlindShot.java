@@ -18,7 +18,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class Auton3DoubleBlindShot extends CommandGroup {
     
     public  Auton3DoubleBlindShot() {
-        // Add Commands here:
+        // add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());
         // these will run in order.
@@ -34,5 +34,21 @@ public class Auton3DoubleBlindShot extends CommandGroup {
         // e.g. if Command1 requires chassis, and Command2 requires arm,
         // a CommandGroup containing them would require both the chassis and the
         // arm.
+        
+        addSequential(new Shoot(false));
+	
+	addParallel(new RunRollerBar());
+	addSequential(new UnwindWinch());
+	
+	addParallel(new RunRollerBar());
+	addSequential(new Delay(1)); // To make sure the ball gets in
+//	addSequential(new WaitForBall());
+	
+	addSequential(new ReleaseLatch());
+	
+	addParallel(new ArcadeDriveWithInputs(-0.75,0,2));
+	addSequential(new WinchLauncherDown());
+	
+	addSequential(new UnwindWinch());
     }
 }

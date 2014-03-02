@@ -34,5 +34,8 @@ public class Auton1MobilityBonus extends CommandGroup {
         // e.g. if Command1 requires chassis, and Command2 requires arm,
         // a CommandGroup containing them would require both the chassis and the
         // arm.
+        
+        addSequential(new DriveForDistance(4)); // Could do this with time delay
+//	addSequential(new ArcadeDriveWithInputs(-0.75,0,2));
     }
 }

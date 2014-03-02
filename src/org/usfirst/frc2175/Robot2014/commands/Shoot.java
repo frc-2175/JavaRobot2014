@@ -17,7 +17,11 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
  */
 public class Shoot extends CommandGroup {
     
-    public  Shoot() {
+    public Shoot() {
+        this(true);
+    }
+    
+    public  Shoot(boolean unwind) {
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());
@@ -34,5 +38,13 @@ public class Shoot extends CommandGroup {
         // e.g. if Command1 requires chassis, and Command2 requires arm,
         // a CommandGroup containing them would require both the chassis and the
         // arm.
+        
+        addSequential(new MoveArmOut());
+	addSequential(new WinchLauncherDown());
+	addSequential(new UnwindWinch());
+	addSequential(new ReleaseLatch());
+	addSequential(new WinchLauncherDown());
+	if (unwind)
+		addSequential(new UnwindWinch());
     }
 }

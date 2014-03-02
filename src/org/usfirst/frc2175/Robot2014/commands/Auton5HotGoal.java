@@ -18,7 +18,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class Auton5HotGoal extends CommandGroup {
     
     public  Auton5HotGoal() {
-        // Add Commands here:
+        // add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());
         // these will run in order.
@@ -34,5 +34,20 @@ public class Auton5HotGoal extends CommandGroup {
         // e.g. if Command1 requires chassis, and Command2 requires arm,
         // a CommandGroup containing them would require both the chassis and the
         // arm.
+        
+        addSequential(new Delay(0.5)); // Wait for the vision system to process a hot goal
+	
+	addSequential(new WaitForHotGoal(),7);
+	
+	addSequential(new WinchLauncherDown());
+	
+	addSequential(new UnwindWinch());
+	
+	addSequential(new ReleaseLatch());
+	
+	addParallel(new ArcadeDriveWithInputs(-0.75,0,2));
+	addSequential(new WinchLauncherDown());
+	
+	addSequential(new UnwindWinch());
     }
 }

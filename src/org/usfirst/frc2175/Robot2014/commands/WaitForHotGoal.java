@@ -13,6 +13,7 @@ package org.usfirst.frc2175.Robot2014.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc2175.Robot2014.Robot;
+import edu.wpi.first.wpilibj.smartdashboard.*;
 
 /**
  *
@@ -29,19 +30,26 @@ public class  WaitForHotGoal extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+        System.out.println("Waiting for the hot goal...\n");
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+        
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        if (SmartDashboard.getNumber("IS_RECT") == 1) {
+		return true;
+	} else {
+		return false;
+	}
     }
 
     // Called once after isFinished returns true
     protected void end() {
+        System.out.println("Done waiting for the hot goal.\n\n");
     }
 
     // Called when another command which requires one or more of the same

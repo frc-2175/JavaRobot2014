@@ -49,7 +49,7 @@ public class Arm extends Subsystem {
 	}
     }
     
-    public void RunRollerBarAtSpeed(float speed) {
+    public void RunRollerBarAtSpeed(double speed) {
         rollerBar.set(speed);
     }
     
