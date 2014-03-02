@@ -53,6 +53,14 @@ public class Arm extends Subsystem {
         rollerBar.set(speed);
     }
     
+    public boolean IsArmSwitch1() {
+        return armOutSwitch1.get();
+    }
+    
+    public boolean IsArmSwitch2() {
+        return armOutSwitch2.get();
+    }
+    
     public boolean IsArmOut() {
 	//	return !(bool)armOutSwitch1->Get() || !(bool)armOutSwitch2->Get(); // The switches read 1 when the arm is NOT out. We need to typecast these values to bool and invert them before doing logic on them.
 	if( armOutSwitch1.get() || armOutSwitch2.get() )
