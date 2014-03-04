@@ -75,6 +75,8 @@ public class Robot extends IterativeRobot {
 //	autoChooser.addObject("4 - Hot Goal, Mobility Bonus", /* tbd */);
 //	autoChooser.addObject("5 - High Goal, Hot Goal, Mobility Bonus", /* tbd */);
 	SmartDashboard.putData("Autonomous Routine",autoChooser);
+        
+        SmartDashboard.putNumber("Drivetrain Fudge Factor",0);
     }
 
     public void autonomousInit() {
@@ -109,10 +111,11 @@ public class Robot extends IterativeRobot {
 	if (oi.getGamepad().getRawButton(6))
 		System.out.println("-----------------------------------\n");
         
-        SmartDashboard.putNumber("Shooter Down", Robot.launcher.IsShooterArmDown() ? 1 : 0);
-	SmartDashboard.putNumber("Shooter Up", Robot.launcher.IsWinchUp() ? 1 : 0);
-	SmartDashboard.putNumber("Arm Out Switch 1", Robot.arm.IsArmSwitch1() ? 1 : 0);
-	SmartDashboard.putNumber("Arm Out Switch 2", Robot.arm.IsArmSwitch2() ? 1 : 0);
+        SmartDashboard.putBoolean("Shooter Down", Robot.launcher.IsShooterArmDown());
+	SmartDashboard.putBoolean("Shooter Up", Robot.launcher.IsWinchUp());
+	SmartDashboard.putBoolean("Arm Out Switch 1", Robot.arm.IsArmSwitch1());
+	SmartDashboard.putBoolean("Arm Out Switch 2", Robot.arm.IsArmSwitch2());
+        SmartDashboard.putNumber("Ball Sensor Average Voltage", Robot.launcher.GetBallSensorVoltage());
     }
 
     /**

@@ -17,6 +17,7 @@ import edu.wpi.first.wpilibj.*;
 import edu.wpi.first.wpilibj.CounterBase.EncodingType; import edu.wpi.first.wpilibj.PIDSource.PIDSourceParameter;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 
 /**
@@ -52,7 +53,13 @@ public class Drivetrain extends Subsystem {
     }
     
     public void ArcadeDriveWithParameters(double forward, double turning) {
-	robotDrive.arcadeDrive(forward, turning, false);
+        ArcadeDriveWithParameters(forward, turning, false);
+    }
+    
+    public void ArcadeDriveWithParameters(double forward, double turning, boolean fudge) {
+	double fudgeAmount = 0;
+        if (fudge) fudgeAmount = forward * SmartDashboard.getNumber("Drivetrain Fudge Factor");
+        robotDrive.arcadeDrive(forward, turning + fudgeAmount, false);
 //	fakeCompressor.set(1);
 	
     }

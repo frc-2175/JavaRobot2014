@@ -49,19 +49,20 @@ public class Launcher extends Subsystem {
     }
     
     public boolean IsShooterArmDown() {
-	
-	return (boolean)(latchSwitch.get());
-	
+	return !latchSwitch.get();
     }
     public boolean IsWinchUp() {
-        return (boolean)(winchUpSwitch.get());
+        return !winchUpSwitch.get();
     }
     public boolean IsBall() {
-            if (ballSensor.getAverageValue() > 100) { /* Whatever threshold indicates a ball */
-                    return true;
-            } else {
-                    return false;
-            }
+        if (ballSensor.getAverageValue() > 100) { /* Whatever threshold indicates a ball */
+            return true;
+        } else {
+            return false;
+        }
+    }
+    public double GetBallSensorVoltage() {
+        return ballSensor.getAverageVoltage();
     }
     public void RunWinchAtSpeed(double speed) {
             winchMotor.set(speed);

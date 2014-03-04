@@ -11,6 +11,7 @@
 
 package org.usfirst.frc2175.Robot2014.commands;
 import edu.wpi.first.wpilibj.command.CommandGroup;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
@@ -35,9 +36,14 @@ public class Auton2BlindShot extends CommandGroup {
         // a CommandGroup containing them would require both the chassis and the
         // arm.
         
-        addSequential(new Shoot(),8);
+        addSequential(new MoveArmOut());
+        
+//        addSequential(new DriveForDistance(6)); // could do this with time delay
+        addSequential(new ArcadeDriveWithInputs(-1,0,2,true));
+        
+        addSequential(new Delay(2));
+        
+        addSequential(new Shoot());
 
-    //  addSequential(new DriveForDistance(4)); // could do this with time delay
-        addSequential(new ArcadeDriveWithInputs(-0.75,0,2));
     }
 }

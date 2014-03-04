@@ -22,8 +22,13 @@ public class  ArcadeDriveWithInputs extends Command {
     double forwardSpeed;
     double turningSpeed;
     double timeoutTime;
-
+    boolean shouldFudge;
+    
     public ArcadeDriveWithInputs(double forward, double turning, double time) {
+        this(forward, turning, time, false);
+    }
+
+    public ArcadeDriveWithInputs(double forward, double turning, double time, boolean fudge) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
 	
@@ -34,6 +39,7 @@ public class  ArcadeDriveWithInputs extends Command {
         forwardSpeed = forward;
 	turningSpeed = turning;
 	timeoutTime = time;
+        shouldFudge = fudge;
 	if (timeoutTime > 0) {
             setTimeout(timeoutTime);
 	}
@@ -46,7 +52,7 @@ public class  ArcadeDriveWithInputs extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        Robot.drivetrain.ArcadeDriveWithParameters(forwardSpeed,turningSpeed);
+        Robot.drivetrain.ArcadeDriveWithParameters(forwardSpeed,turningSpeed,shouldFudge);
     }
 
     // Make this return true when this Command no longer needs to run execute()
