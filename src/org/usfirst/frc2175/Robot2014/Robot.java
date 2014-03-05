@@ -76,7 +76,7 @@ public class Robot extends IterativeRobot {
 //	autoChooser.addObject("5 - High Goal, Hot Goal, Mobility Bonus", /* tbd */);
 	SmartDashboard.putData("Autonomous Routine",autoChooser);
         
-        SmartDashboard.putNumber("Drivetrain Fudge Factor",0);
+        SmartDashboard.putNumber("Drivetrain Fudge Factor",.175);
     }
 
     public void autonomousInit() {

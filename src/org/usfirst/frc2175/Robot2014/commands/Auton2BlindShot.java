@@ -36,12 +36,14 @@ public class Auton2BlindShot extends CommandGroup {
         // a CommandGroup containing them would require both the chassis and the
         // arm.
         
+//        addSequential(new DriveForDistance(6)); // could do this with time delay
+        addSequential(new ArcadeDriveWithInputs(-1,0,1.25,true));
+        
+        addSequential(new ArcadeDriveWithInputs(-0.5,0,0.5,true));
+        
         addSequential(new MoveArmOut());
         
-//        addSequential(new DriveForDistance(6)); // could do this with time delay
-        addSequential(new ArcadeDriveWithInputs(-1,0,2,true));
-        
-        addSequential(new Delay(2));
+        addSequential(new Delay(1.75));
         
         addSequential(new Shoot());
 

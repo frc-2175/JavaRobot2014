@@ -35,19 +35,32 @@ public class Auton5HotGoal extends CommandGroup {
         // a CommandGroup containing them would require both the chassis and the
         // arm.
         
-        addSequential(new Delay(0.5)); // Wait for the vision system to process a hot goal
-	
-	addSequential(new WaitForHotGoal(),7);
-	
-	addSequential(new WinchLauncherDown());
-	
-	addSequential(new UnwindWinch());
-	
-	addSequential(new ReleaseLatch());
-	
-	addParallel(new ArcadeDriveWithInputs(-0.75,0,2));
-	addSequential(new WinchLauncherDown());
-	
-	addSequential(new UnwindWinch());
+//        addSequential(new Delay(0.5)); // Wait for the vision system to process a hot goal
+//	
+//	addSequential(new WaitForHotGoal(),7);
+//	
+//	addSequential(new WinchLauncherDown());
+//	
+//	addSequential(new UnwindWinch());
+//	
+//	addSequential(new ReleaseLatch());
+//	
+//	addParallel(new ArcadeDriveWithInputs(-0.75,0,2));
+//	addSequential(new WinchLauncherDown());
+//	
+//	addSequential(new UnwindWinch());
+        
+        addSequential(new ArcadeDriveWithInputs(-1,0,1.25,true));
+        
+        addSequential(new ArcadeDriveWithInputs(-0.5,0,0.5,true));
+        
+        addSequential(new MoveArmOut());
+        
+        addSequential(new Delay(1.75));
+        
+        addSequential(new WaitForHotGoal());
+        
+        addSequential(new Shoot());
+
     }
 }

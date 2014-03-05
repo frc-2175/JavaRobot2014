@@ -35,18 +35,26 @@ public class Auton3DoubleBlindShot extends CommandGroup {
         // a CommandGroup containing them would require both the chassis and the
         // arm.
         
+        addParallel(new ShiftToHighGear());
+        addSequential(new MoveArmOut());
+        
+        addParallel(new ShiftToHighGear()); // YOU MUST REPLACE ALL INSTANCES OF ShiftToHighGear WITH TensionLauncher
         addSequential(new Shoot(false));
 	
+        addParallel(new ShiftToHighGear());
 	addParallel(new RunRollerBar());
 	addSequential(new UnwindWinch());
 	
+        addParallel(new ShiftToHighGear());
 	addParallel(new RunRollerBar());
-	addSequential(new Delay(1)); // To make sure the ball gets in
+	addSequential(new Delay(2)); // To make sure the ball gets in
 //	addSequential(new WaitForBall());
 	
+        addParallel(new ShiftToHighGear());
 	addSequential(new ReleaseLatch());
 	
-	addParallel(new ArcadeDriveWithInputs(-0.75,0,2));
+        addParallel(new ShiftToHighGear());
+	addParallel(new ArcadeDriveWithInputs(-0.75,0,2,true));
 	addSequential(new WinchLauncherDown());
 	
 	addSequential(new UnwindWinch());
