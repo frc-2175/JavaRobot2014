@@ -11,6 +11,7 @@
 
 package org.usfirst.frc2175.Robot2014.commands;
 import edu.wpi.first.wpilibj.command.CommandGroup;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
@@ -35,25 +36,35 @@ public class Auton3DoubleBlindShot extends CommandGroup {
         // a CommandGroup containing them would require both the chassis and the
         // arm.
         
-        addParallel(new ShiftToHighGear());
+//        addParallel(new TensionLauncher());
         addSequential(new MoveArmOut());
         
-        addParallel(new ShiftToHighGear()); // YOU MUST REPLACE ALL INSTANCES OF ShiftToHighGear WITH TensionLauncher
+        addSequential(new Delay(1.75));
+        
+//        addParallel(new TensionLauncher());
         addSequential(new Shoot(false));
 	
-        addParallel(new ShiftToHighGear());
-	addParallel(new RunRollerBar());
+//        addParallel(new TensionLauncher());
+	addParallel(new RunRollerBar(),1);
 	addSequential(new UnwindWinch());
-	
-        addParallel(new ShiftToHighGear());
-	addParallel(new RunRollerBar());
-	addSequential(new Delay(2)); // To make sure the ball gets in
+        
+        addParallel(new RunRollerBar(),0.75);
+        addSequential(new ArcadeDriveWithInputs(0.5,0,0.75));
+        
+        addSequential(new ArcadeDriveWithInputs(-0.5,0,0.75));
+        
+        addSequential(new Delay(1.75));
+                
+//        addParallel(new TensionLauncher());
+//	addParallel(new RunRollerBar());
+//	addSequential(new Delay(1)); // To make sure the ball gets in
+//        addSequential(new Delay(SmartDashboard.getNumber("Blind Shot Roller Delay")));
 //	addSequential(new WaitForBall());
 	
-        addParallel(new ShiftToHighGear());
+//        addParallel(new TensionLauncher());
 	addSequential(new ReleaseLatch());
 	
-        addParallel(new ShiftToHighGear());
+        addParallel(new TensionLauncher()); // We should already be tensioned. This is here to untension us at the end of auton.
 	addParallel(new ArcadeDriveWithInputs(-0.75,0,2,true));
 	addSequential(new WinchLauncherDown());
 	

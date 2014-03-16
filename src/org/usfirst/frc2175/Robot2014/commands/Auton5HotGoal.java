@@ -11,6 +11,7 @@
 
 package org.usfirst.frc2175.Robot2014.commands;
 import edu.wpi.first.wpilibj.command.CommandGroup;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
@@ -56,9 +57,9 @@ public class Auton5HotGoal extends CommandGroup {
         
         addSequential(new MoveArmOut());
         
-        addSequential(new Delay(1.75));
+        addSequential(new Delay(1.25));
         
-        addSequential(new WaitForHotGoal());
+        addSequential(new WaitForHotGoal(),3);
         
         addSequential(new Shoot());
 

@@ -43,26 +43,26 @@ public class  Auton6DoubleHotGoalSANE extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
         switch (step) {
-	case 1:		activeCommand = new Delay(0.5); // Wait for the vision system
-				activeCommand.start();
-				step = 2;
-				break;
-	case 2:		if (!activeCommand.isRunning()) step = 3; // Are we done delaying?
-				break;
-	case 3:		if (SmartDashboard.getBoolean("IS_RECT")) { // Is there a hot goal?
-					// We are in front of the hot goal
-					activeCommand = new Auton6PartialStartHot();
-					activeCommand.start();
-				} else {
-					// We chose the wrong goal :(
-					activeCommand = new Auton6PartialStartCold();
-					activeCommand.start();
-				}
-				step = 4;
-	case 4:		if (!activeCommand.isRunning()) step = -1;
-				break;
-	case -1:	isDone = true;
-				break;
+	case 1:	activeCommand = new Delay(0.5); // Wait for the vision system
+                    activeCommand.start();
+                    step = 2;
+                    break;
+	case 2:	if (!activeCommand.isRunning()) step = 3; // Are we done delaying?
+                    break;
+	case 3:	if (SmartDashboard.getBoolean("IS_RECT")) { // Is there a hot goal?
+                    // We are in front of the hot goal
+                    activeCommand = new Auton6PartialStartHot();
+                    activeCommand.start();
+                } else {
+                    // We chose the wrong goal :(
+                    activeCommand = new Auton6PartialStartCold();
+                    activeCommand.start();
+                }
+                step = 4;
+	case 4:	if (!activeCommand.isRunning()) step = -1;
+                    break;
+	case -1:isDone = true;
+                    break;
 	}
     }
 

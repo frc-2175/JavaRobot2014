@@ -35,7 +35,7 @@ public class Auton4LowGoal extends CommandGroup {
         // a CommandGroup containing them would require both the chassis and the
         // arm.
         
-        addSequential(new DriveForDistance(6));
+        addSequential(new DriveForDistance(15));
 	
 	addSequential(new RunRollerBarBackwards(),2);
     }

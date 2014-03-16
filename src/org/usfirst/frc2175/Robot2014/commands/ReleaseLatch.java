@@ -38,6 +38,7 @@ public class  ReleaseLatch extends Command {
     protected void execute() {
         if ((Robot.arm.IsArmOut() && Robot.launcher.IsShooterArmDown() && Robot.launcher.IsWinchUp() && true /* isBall */) || Robot.oi.shouldOverrideLatch()) {
 		Robot.launcher.SetLatch(true);
+                Robot.shootLights.set(true);
 	}
     }
 
@@ -49,6 +50,7 @@ public class  ReleaseLatch extends Command {
     // Called once after isFinished returns true
     protected void end() {
         Robot.launcher.SetLatch(false);
+        Robot.shootLights.set(false);
 	System.out.println("Done releasing the latch.\n\n");
     }
 
