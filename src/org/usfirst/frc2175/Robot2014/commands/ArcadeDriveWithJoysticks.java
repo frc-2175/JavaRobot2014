@@ -37,7 +37,6 @@ public class  ArcadeDriveWithJoysticks extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
         Robot.drivetrain.ArcadeDriveWithParameters(Robot.oi.getForwardSpeed(),Robot.oi.getTurningSpeed());
-	SmartDashboard.putNumber("Gyro Heading",Robot.drivetrain.GetGyroAngle());
     }
 
     // Make this return true when this Command no longer needs to run execute()

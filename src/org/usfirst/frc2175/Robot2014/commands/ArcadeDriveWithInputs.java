@@ -22,13 +22,30 @@ public class  ArcadeDriveWithInputs extends Command {
     double forwardSpeed;
     double turningSpeed;
     double timeoutTime;
-    boolean shouldFudge;
+    boolean shouldAutoSteer;
     
+    public ArcadeDriveWithInputs(double forward, double turning) {
+        this (forward, turning, 0);
+    }
+    
+    /**
+     * Drives the robot for time with provided inputs.
+     * @param forward The forward driving speed (left joystick)
+     * @param turning The turning speed (right joystick)
+     * @param time The duration of time for driving. If 0 then the robot will drive infinitely.
+     */
     public ArcadeDriveWithInputs(double forward, double turning, double time) {
         this(forward, turning, time, false);
     }
-
-    public ArcadeDriveWithInputs(double forward, double turning, double time, boolean fudge) {
+    
+    /**
+     * Drives the robot for time with provided inputs, optionally driving straight using a gyro.
+     * @param forward The forward driving speed (left joystick)
+     * @param turning The turning speed (right joystick)
+     * @param time The duration of time for driving. If 0 then the robot will drive infinitely.
+     * @param autoSteer Whether to attempt to drive straight (using a gyro)
+     */
+    public ArcadeDriveWithInputs(double forward, double turning, double time, boolean autoSteer) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
 	
@@ -39,7 +56,7 @@ public class  ArcadeDriveWithInputs extends Command {
         forwardSpeed = forward;
 	turningSpeed = turning;
 	timeoutTime = time;
-        shouldFudge = fudge;
+        shouldAutoSteer = autoSteer;
 	if (timeoutTime > 0) {
             setTimeout(timeoutTime);
 	}
@@ -47,12 +64,13 @@ public class  ArcadeDriveWithInputs extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+        if (shouldAutoSteer) Robot.drivetrain.ResetGyro();
         System.out.println("Driving with inputs...\n");
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        Robot.drivetrain.ArcadeDriveWithParameters(forwardSpeed,turningSpeed,shouldFudge);
+        Robot.drivetrain.ArcadeDriveWithParameters(forwardSpeed,turningSpeed,shouldAutoSteer);
     }
 
     // Make this return true when this Command no longer needs to run execute()

@@ -12,6 +12,7 @@
 package org.usfirst.frc2175.Robot2014.subsystems;
 
 import org.usfirst.frc2175.Robot2014.RobotMap;
+import org.usfirst.frc2175.Robot2014.Robot;
 import org.usfirst.frc2175.Robot2014.commands.*;
 import edu.wpi.first.wpilibj.*;
 import edu.wpi.first.wpilibj.CounterBase.EncodingType; import edu.wpi.first.wpilibj.PIDSource.PIDSourceParameter;
@@ -56,10 +57,16 @@ public class Drivetrain extends Subsystem {
         ArcadeDriveWithParameters(forward, turning, false);
     }
     
-    public void ArcadeDriveWithParameters(double forward, double turning, boolean fudge) {
-	double fudgeAmount = 0;
-        if (fudge) fudgeAmount = forward * SmartDashboard.getNumber("Drivetrain Fudge Factor");
-        robotDrive.arcadeDrive(forward, turning + fudgeAmount, false);
+    public void ArcadeDriveWithParameters(double forward, double turning, boolean autoSteer) {
+	double steerAmount = turning;
+        if (autoSteer) {
+            steerAmount = -(Robot.drivetrain.GetGyroAngle() / 40) * SmartDashboard.getNumber("Straight Driving Tuning");
+            double range = SmartDashboard.getNumber("Straight Driving Range");
+            if (steerAmount > range) steerAmount = range;
+            if (steerAmount < -range) steerAmount = -range;
+        }
+        SmartDashboard.putNumber("Turning Amount", steerAmount);
+        robotDrive.arcadeDrive(forward, steerAmount, false);
 //	fakeCompressor.set(1);
 	
     }

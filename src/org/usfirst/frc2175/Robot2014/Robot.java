@@ -89,6 +89,8 @@ public class Robot extends IterativeRobot {
         
         SmartDashboard.putNumber("Drivetrain Fudge Factor",0);
         SmartDashboard.putNumber("Arm Out Roller Speed",0.3);
+        SmartDashboard.putNumber("Straight Driving Tuning",1);
+        SmartDashboard.putNumber("Straight Driving Range",0.5);
     }
 
     public void autonomousInit() {
@@ -104,6 +106,7 @@ public class Robot extends IterativeRobot {
      */
     public void autonomousPeriodic() {
         Scheduler.getInstance().run();
+        SmartDashboard.putNumber("Gyro Heading",Robot.drivetrain.GetGyroAngle());
 	if (oi.getGamepad().getRawButton(6))
 		System.out.println("-----------------------------------\n");
     }
@@ -131,6 +134,7 @@ public class Robot extends IterativeRobot {
 	SmartDashboard.putBoolean("Arm Out Switch 1", Robot.arm.IsArmSwitch1());
 	SmartDashboard.putBoolean("Arm Out Switch 2", Robot.arm.IsArmSwitch2());
         SmartDashboard.putNumber("Ball Sensor Average Voltage", Robot.launcher.GetBallSensorVoltage());
+        SmartDashboard.putNumber("Gyro Heading",Robot.drivetrain.GetGyroAngle());
     }
 
     /**
