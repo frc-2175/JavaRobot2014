@@ -88,6 +88,7 @@ public class Robot extends IterativeRobot {
         shootLights = new DigitalOutput(1,14);
         
         SmartDashboard.putNumber("Drivetrain Fudge Factor",0);
+        SmartDashboard.putNumber("Arm Out Roller Speed",0.3);
     }
 
     public void autonomousInit() {

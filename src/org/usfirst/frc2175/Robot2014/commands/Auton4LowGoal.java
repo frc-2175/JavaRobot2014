@@ -35,8 +35,38 @@ public class Auton4LowGoal extends CommandGroup {
         // a CommandGroup containing them would require both the chassis and the
         // arm.
         
+        /*
+        
         addSequential(new DriveForDistance(15));
 	
 	addSequential(new RunRollerBarBackwards(),2);
+                
+        */
+        
+        // ----------------------------------
+        // This auton routine does a long shot, then drives, gets the second ball, and does a short shot.
+        // ----------------------------------
+        
+        addParallel(new ShiftToHighGear(),1.5); // This should stay tensioned
+        addSequential(new MoveArmOut());
+        
+        addSequential(new Delay(0.75));
+        
+        addSequential(new Shoot(false));
+        
+        addParallel(new RunRollerBar(),0.5);
+        addSequential(new ArcadeDriveWithInputs(0.75,0,0.5));
+        
+        addParallel(new MoveArmIn());
+        addParallel(new UnwindWinch());
+        addSequential(new ArcadeDriveWithInputs(-1,-0.15,2.0));
+        
+        addSequential(new ArcadeDriveWithInputs(-0.5,-0.1,0.5));
+        
+        addSequential(new MoveArmOut());
+        
+        addSequential(new Delay(0.75));
+        
+        addSequential(new Shoot());
     }
 }

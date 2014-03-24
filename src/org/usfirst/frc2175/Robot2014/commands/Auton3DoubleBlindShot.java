@@ -36,6 +36,8 @@ public class Auton3DoubleBlindShot extends CommandGroup {
         // a CommandGroup containing them would require both the chassis and the
         // arm.
         
+        /*
+        
 //        addParallel(new TensionLauncher());
         addSequential(new MoveArmOut());
         
@@ -69,5 +71,35 @@ public class Auton3DoubleBlindShot extends CommandGroup {
 	addSequential(new WinchLauncherDown());
 	
 	addSequential(new UnwindWinch());
+                
+                */
+        
+        addSequential(new ArcadeDriveWithInputs(-1,-0.1,1.25,true));
+        
+        addSequential(new ArcadeDriveWithInputs(-0.5,-0.1,0.5,true));
+        
+        addSequential(new MoveArmOut());
+        
+        addSequential(new Delay(0.75));
+        
+        addSequential(new Shoot(false));
+        
+        addParallel(new UnwindWinch());
+        addParallel(new RunRollerBar(2));
+        addSequential(new ArcadeDriveWithInputs(1,0,2,true));
+        
+        addParallel(new RunRollerBar(0.5));
+        addSequential(new ArcadeDriveWithInputs(0.5,0,0.5,true));
+        
+        addParallel(new MoveArmIn());
+        addSequential(new ArcadeDriveWithInputs(-1,-0.15,2.5,true));
+        
+        addSequential(new ArcadeDriveWithInputs(-0.5,-0.1,0.5,true));
+        
+        addSequential(new MoveArmOut());
+        
+        addSequential(new Delay(0.75));
+        
+        addSequential(new Shoot());
     }
 }

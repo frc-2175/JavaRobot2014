@@ -39,7 +39,6 @@ public class Shoot extends CommandGroup {
         // a CommandGroup containing them would require both the chassis and the
         // arm.
         
-        addSequential(new MoveArmOut());
 	addSequential(new WinchLauncherDown());
 	addSequential(new UnwindWinch());
 	addSequential(new ReleaseLatch());

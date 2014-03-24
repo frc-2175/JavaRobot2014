@@ -12,6 +12,7 @@
 package org.usfirst.frc2175.Robot2014.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc2175.Robot2014.Robot;
 
 /**
@@ -37,6 +38,7 @@ public class  MoveArmOut extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
         Robot.arm.MoveArmToPosition(false);
+        Robot.arm.RunRollerBarAtSpeed(SmartDashboard.getNumber("Arm Out Roller Speed"));
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -46,6 +48,7 @@ public class  MoveArmOut extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
+        Robot.arm.RunRollerBarAtSpeed(0);
         System.out.println("Done moving the arm out.\n\n");
     }
 

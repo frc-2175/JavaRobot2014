@@ -27,7 +27,7 @@ public class Launcher extends Subsystem {
     DigitalInput latchSwitch = RobotMap.launcherLatchSwitch;
     DigitalInput winchUpSwitch = RobotMap.launcherWinchUpSwitch;
     SpeedController winchMotor = RobotMap.launcherWinchMotor;
-    Encoder winchEncoder = RobotMap.launcherWinchEncoder;
+//    Encoder winchEncoder = RobotMap.launcherWinchEncoder;
     AnalogChannel ballSensor = RobotMap.launcherBallSensor;
     Solenoid latch = RobotMap.launcherLatch;
     DoubleSolenoid tension = RobotMap.launcherTension;
