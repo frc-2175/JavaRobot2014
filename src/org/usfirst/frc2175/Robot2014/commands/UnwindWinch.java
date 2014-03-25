@@ -15,7 +15,8 @@ import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc2175.Robot2014.Robot;
 
 /**
- *
+ * This command unwinds the winch on the shooter. It will stop when the Sammy
+ * Switch trips, unless the global override is pressed.
  */
 public class  UnwindWinch extends Command {
     

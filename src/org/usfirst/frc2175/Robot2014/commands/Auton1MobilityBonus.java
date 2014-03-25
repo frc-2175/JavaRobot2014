@@ -13,28 +13,12 @@ package org.usfirst.frc2175.Robot2014.commands;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
- *
+ * This auton routine drives forward at top speed for two seconds.
+ * Use this if shooter operation is broken.
  */
 public class Auton1MobilityBonus extends CommandGroup {
     
     public  Auton1MobilityBonus() {
-        // Add Commands here:
-        // e.g. addSequential(new Command1());
-        //      addSequential(new Command2());
-        // these will run in order.
-
-        // To run multiple commands at the same time,
-        // use addParallel()
-        // e.g. addParallel(new Command1());
-        //      addSequential(new Command2());
-        // Command1 and Command2 will run in parallel.
-
-        // A command group will require all of the subsystems that each member
-        // would require.
-        // e.g. if Command1 requires chassis, and Command2 requires arm,
-        // a CommandGroup containing them would require both the chassis and the
-        // arm.
-        
 //        addSequential(new DriveForDistance(4)); // Could do this with time delay
 	addSequential(new ArcadeDriveWithInputs(-1,0,2));
     }

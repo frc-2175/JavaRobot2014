@@ -15,14 +15,24 @@ import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc2175.Robot2014.Robot;
 
 /**
- *
+ * This command runs the roller bar to suck in a ball. It can run infinitely or
+ * time out (for use in auto sequences.)
  */
 public class  RunRollerBar extends Command {
     
+    /**
+     * Constructs the command to run infinitely. It must be manually interrupted
+     * to make it stop.
+     */
     public RunRollerBar() {
         this(0);
     }
     
+    /**
+     * Constructs the command with a timeout value.
+     * @param timeout The number of seconds to run the roller bar. If set to 0,
+     * it will run infinitely.
+     */
     public RunRollerBar(double timeout) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);

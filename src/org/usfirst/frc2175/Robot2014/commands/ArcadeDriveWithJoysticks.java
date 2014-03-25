@@ -16,7 +16,8 @@ import org.usfirst.frc2175.Robot2014.Robot;
 import edu.wpi.first.wpilibj.smartdashboard.*;
 
 /**
- *
+ * This command drives the robot using values from the driver station joysticks.
+ * This is intended for Teleop use.
  */
 public class  ArcadeDriveWithJoysticks extends Command {
 

@@ -16,7 +16,8 @@ import org.usfirst.frc2175.Robot2014.Robot;
 import edu.wpi.first.wpilibj.smartdashboard.*;
 
 /**
- *
+ * This auton routine gets two hot goals in autonomous. We've never tested it
+ * though; I'm not even sure we can schedule and run commands this way.
  */
 public class  Auton6DoubleHotGoalSANE extends Command {
     

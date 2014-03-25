@@ -13,40 +13,13 @@ package org.usfirst.frc2175.Robot2014.commands;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
- *
+ * This auton routine does a long shot, then drives, gets the second ball,
+ * and does a short shot. Obviously the name of this file does not currently
+ * match up with the actual behavior of the routine.
  */
 public class Auton4LowGoal extends CommandGroup {
     
     public  Auton4LowGoal() {
-        // add Commands here:
-        // e.g. addSequential(new Command1());
-        //      addSequential(new Command2());
-        // these will run in order.
-
-        // To run multiple commands at the same time,
-        // use addParallel()
-        // e.g. addParallel(new Command1());
-        //      addSequential(new Command2());
-        // Command1 and Command2 will run in parallel.
-
-        // A command group will require all of the subsystems that each member
-        // would require.
-        // e.g. if Command1 requires chassis, and Command2 requires arm,
-        // a CommandGroup containing them would require both the chassis and the
-        // arm.
-        
-        /*
-        
-        addSequential(new DriveForDistance(15));
-	
-	addSequential(new RunRollerBarBackwards(),2);
-                
-        */
-        
-        // ----------------------------------
-        // This auton routine does a long shot, then drives, gets the second ball, and does a short shot.
-        // ----------------------------------
-        
         addParallel(new ShiftToHighGear(),1.5); // This should stay tensioned
         addSequential(new MoveArmOut());
         

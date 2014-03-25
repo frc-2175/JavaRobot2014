@@ -16,7 +16,9 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc2175.Robot2014.Robot;
 
 /**
- *
+ * This command moves the intake arm out. It also runs the roller bar at a slow
+ * speed to try and keep the ball steady. When this command finishes, the arm
+ * remains out.
  */
 public class  MoveArmOut extends Command {
 

@@ -15,7 +15,8 @@ import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc2175.Robot2014.Robot;
 
 /**
- *
+ * This auton routine is NOT CURRENTLY IN USE, because it's INSANE. In fact,
+ * it looks like we never even ported this from C++, because it was stupid.
  */
 public class  Auton6DoubleHotGoal extends Command {
 

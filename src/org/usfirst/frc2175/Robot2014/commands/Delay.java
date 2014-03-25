@@ -15,7 +15,8 @@ import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc2175.Robot2014.Robot;
 
 /**
- *
+ * This command simply waits for a provided amount of time. For use in
+ * command groups.
  */
 public class  Delay extends Command {
 

@@ -15,7 +15,8 @@ import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc2175.Robot2014.Robot;
 
 /**
- *
+ * This command shifts the robot into high gear. When it finishes, it shifts
+ * back to low gear.
  */
 public class  ShiftToHighGear extends Command {
 

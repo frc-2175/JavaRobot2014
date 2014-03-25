@@ -12,11 +12,11 @@
 package org.usfirst.frc2175.Robot2014.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
-import org.usfirst.frc2175.Robot2014.Robot;
 import edu.wpi.first.wpilibj.smartdashboard.*;
 
 /**
- *
+ * This command waits until the vision system detects a hot goal. For use in
+ * autonomous routines.
  */
 public class  WaitForHotGoal extends Command {
 

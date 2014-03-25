@@ -15,7 +15,8 @@ import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc2175.Robot2014.Robot;
 
 /**
- *
+ * This command drives the robot with provided inputs.
+ * This is intended for use in autonomous robot functions.
  */
 public class  ArcadeDriveWithInputs extends Command {
     
@@ -24,6 +25,12 @@ public class  ArcadeDriveWithInputs extends Command {
     double timeoutTime;
     boolean shouldAutoSteer;
     
+    /**
+     * Drives the robot infinitely with specified inputs.
+     * MAKE SURE TO SET AN EXTERNAL TIMEOUT.
+     * @param forward The forward driving speed (left joystick)
+     * @param turning The turning speed (right joystick)
+     */
     public ArcadeDriveWithInputs(double forward, double turning) {
         this (forward, turning, 0);
     }

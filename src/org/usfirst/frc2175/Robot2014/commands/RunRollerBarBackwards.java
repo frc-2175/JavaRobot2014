@@ -15,7 +15,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc2175.Robot2014.Robot;
 
 /**
- *
+ * This command runs the roller bar backwards.
  */
 public class  RunRollerBarBackwards extends Command {
 

@@ -15,7 +15,9 @@ import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc2175.Robot2014.Robot;
 
 /**
- *
+ * This command releases the latch to shoot a ball. It will check if the arm is
+ * out, the winch is down, and the winch is up before releasing, unless the
+ * global override is active.
  */
 public class  ReleaseLatch extends Command {
 

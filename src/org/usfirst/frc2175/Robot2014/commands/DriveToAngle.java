@@ -16,7 +16,7 @@ import org.usfirst.frc2175.Robot2014.Robot;
 import edu.wpi.first.wpilibj.smartdashboard.*;
 
 /**
- *
+ * This class uses a PID loop to turn the robot so it is facing a given direction.
  */
 public class  DriveToAngle extends Command {
     
@@ -41,7 +41,7 @@ public class  DriveToAngle extends Command {
 	Robot.drivetrain.gyroPID.reset();
 	Robot.drivetrain.gyroPID.setSetpoint(inputAngle);
 	
-	Robot.drivetrain.gyroPID.setPID(SmartDashboard.getNumber("P"),SmartDashboard.getNumber("I")/1000,0);
+//	Robot.drivetrain.gyroPID.setPID(SmartDashboard.getNumber("P"),SmartDashboard.getNumber("I")/1000,0);
 	
 	Robot.drivetrain.gyroPID.enable();
     }

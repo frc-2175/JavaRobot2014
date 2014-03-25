@@ -15,16 +15,26 @@ import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc2175.Robot2014.Robot;
 
 /**
- *
+ * This command moves the intake arm in. When this command finishes, the arm
+ * remains in.
  */
 public class  MoveArmIn extends Command {
     
     boolean overrideSensors;
-
+    
+    /**
+     * Constructs the command to move the arm in, checking for sensors to make 
+     * sure it is safe to do so.
+     */
     public MoveArmIn() {
         this(false);
     }
     
+    /**
+     * Constructs the command to move the arm in, with the option to override
+     * the safety sensors.
+     * @param override Whether to override the sensors.
+     */
     public MoveArmIn(boolean override) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);

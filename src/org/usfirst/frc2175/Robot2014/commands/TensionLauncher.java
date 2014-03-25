@@ -15,7 +15,8 @@ import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc2175.Robot2014.Robot;
 
 /**
- *
+ * This command tensions the launcher to prepare it for a long shot. When this
+ * command finishes, the tensioner relaxes again for a short shot.
  */
 public class  TensionLauncher extends Command {
 

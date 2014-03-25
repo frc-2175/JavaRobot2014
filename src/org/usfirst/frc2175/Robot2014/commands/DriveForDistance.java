@@ -15,17 +15,27 @@ import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc2175.Robot2014.Robot;
 
 /**
- *
+ * This class uses the robot's encoders to drive for a precise distance. We
+ * would use it more if we really trusted the encoders.
  */
 public class  DriveForDistance extends Command {
     
     float inputFeet;
     boolean inputBackwards;
     
+    /**
+     * Constructs this command to drive forward for a given distance.
+     * @param feet The distance to drive in feet.
+     */
     public DriveForDistance(float feet) {
         this(feet, false);
     }
-
+    
+    /**
+     * Constructs this command with the option to drive backwards.
+     * @param feet The distance to drive in feet.
+     * @param backwards Whether to drive backwards or not.
+     */
     public DriveForDistance(float feet, boolean backwards) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
