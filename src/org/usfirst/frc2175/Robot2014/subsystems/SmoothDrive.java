@@ -10,7 +10,7 @@ public class SmoothDrive {
     // Subsystem stuff
 
     void execute() {
-        if (previousForward * Robot.oi.getForwardSpeed() <= 0 && Math.abs(Robot.oi.getForwardSpeed() - previousOutput) > MAX_CHANGE) {
+        if (previousForward * Robot.oi.getForwardSpeed() <= 0 && Math.abs(Robot.oi.getForwardSpeed() - previousForward) > MAX_CHANGE) {
             // The signs are different (or one value is 0) AND we are changing rapidly enough to merit smoothing
 
             int sign;
@@ -19,7 +19,7 @@ public class SmoothDrive {
             } else if (Robot.oi.getForwardSpeed() > 0 || previousForward < 0) {
                 sign = 1;
             } else { // just in case something crazy happened...
-                sign = 0;//(int)(-(previousOutput / Math.abs(previousOutput))); // If we try to go to 0, we have to use the opposite sign of what we were just outputting
+                sign = 0;
             }
             newForward = previousForward + (MAX_CHANGE * sign);
         } else {
