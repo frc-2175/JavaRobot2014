@@ -97,6 +97,14 @@ public class Drivetrain extends Subsystem {
     }
     
     /**
+     * Returns true if the robot is currently in high gear.
+     * @return True, if the robot is in high gear. Otherwise, false.
+     */
+    public boolean GetShiftState() {
+        return shifters.get() == DoubleSolenoid.Value.kForward;
+    }
+    
+    /**
      * Resets both drive encoders so they start counting from 0.
      */
     public void ResetEncoders() {

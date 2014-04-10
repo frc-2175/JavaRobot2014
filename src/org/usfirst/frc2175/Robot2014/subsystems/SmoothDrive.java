@@ -10,8 +10,8 @@ public class SmoothDrive {
     // Subsystem stuff
 
     void execute() {
-        if (previousForward * Robot.oi.getForwardSpeed() <= 0 && Math.abs(Robot.oi.getForwardSpeed() - previousForward) > MAX_CHANGE) {
-            // The signs are different (or one value is 0) AND we are changing rapidly enough to merit smoothing
+        if (previousForward * Robot.oi.getForwardSpeed() <= 0 && Math.abs(Robot.oi.getForwardSpeed() - previousForward) > MAX_CHANGE && Robot.drivetrain.GetShiftState()) {
+            // The signs are different (or one value is 0) AND we are changing rapidly enough to merit smoothing AND we are in high gear
 
             int sign;
             if (Robot.oi.getForwardSpeed() < 0 || previousForward > 0) {
