@@ -9,7 +9,7 @@ public class Ramp {
         max_delta = max;
     }
     
-    public Ramp() { this(4/3); }
+    public Ramp() { this(4./3); }
     
     public void init(double input) {
         time = edu.wpi.first.wpilibj.Timer.getFPGATimestamp();
