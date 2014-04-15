@@ -1,7 +1,5 @@
 package org.usfirst.frc2175.Robot2014;
 
-import org.usfirst.frc2175.Robot2014.Robot;
-
 public class Ramp {
     private double output;
     private double time;
