@@ -8,7 +8,7 @@ public class Ramp {
     private double MAX_CHANGE;
        
     public Ramp(double max) {
-          MAX_CHANGE = max;
+        MAX_CHANGE = max;
     }
     
     public Ramp() { this(4/3); }
@@ -27,9 +27,9 @@ public class Ramp {
         
         // a few extra conditions in here to test -- tune MAX_CHANGE first!!!
         if (input > output + MAX_CHANGE*dt) {
-                output += MAX_CHANGE*dt;
+            output += MAX_CHANGE*dt;
         } else if (input < output - MAX_CHANGE*dt) {
-                output -= MAX_CHANGE*dt;
+            output -= MAX_CHANGE*dt;
         } else {
             output = input;
         }
