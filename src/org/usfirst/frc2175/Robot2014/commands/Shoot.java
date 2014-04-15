@@ -32,7 +32,7 @@ public class Shoot extends CommandGroup {
      * to omit the final unwinding step.
      * @param unwind Whether to unwind the winch after the shot.
      */
-    public  Shoot(boolean unwind) {
+    public Shoot(boolean unwind) {
         
 	addSequential(new WinchLauncherDown());
 	addSequential(new UnwindWinch());
