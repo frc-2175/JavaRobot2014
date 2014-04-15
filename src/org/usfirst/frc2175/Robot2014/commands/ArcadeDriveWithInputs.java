@@ -24,6 +24,7 @@ public class  ArcadeDriveWithInputs extends Command {
     double turningSpeed;
     double timeoutTime;
     boolean shouldAutoSteer;
+    boolean shouldResetGyro;
     
     /**
      * Drives the robot infinitely with specified inputs.
@@ -42,7 +43,7 @@ public class  ArcadeDriveWithInputs extends Command {
      * @param time The duration of time for driving. If 0 then the robot will drive infinitely.
      */
     public ArcadeDriveWithInputs(double forward, double turning, double time) {
-        this(forward, turning, time, false);
+        this(forward, turning, time, false, false);
     }
     
     /**
@@ -51,8 +52,9 @@ public class  ArcadeDriveWithInputs extends Command {
      * @param turning The turning speed (right joystick)
      * @param time The duration of time for driving. If 0 then the robot will drive infinitely.
      * @param autoSteer Whether to attempt to drive straight (using a gyro)
+     * @param resetGyro Whether to reset the gyro before running this command.
      */
-    public ArcadeDriveWithInputs(double forward, double turning, double time, boolean autoSteer) {
+    public ArcadeDriveWithInputs(double forward, double turning, double time, boolean autoSteer, boolean resetGyro) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
 	
@@ -64,6 +66,7 @@ public class  ArcadeDriveWithInputs extends Command {
 	turningSpeed = turning;
 	timeoutTime = time;
         shouldAutoSteer = autoSteer;
+        shouldResetGyro = resetGyro;
 	if (timeoutTime > 0) {
             setTimeout(timeoutTime);
 	}
@@ -71,7 +74,7 @@ public class  ArcadeDriveWithInputs extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        if (shouldAutoSteer) Robot.drivetrain.ResetGyro();
+        if (shouldAutoSteer && shouldResetGyro) Robot.drivetrain.ResetGyro();
         System.out.println("Driving with inputs...\n");
     }
 

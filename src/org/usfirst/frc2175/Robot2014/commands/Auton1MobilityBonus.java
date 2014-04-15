@@ -19,7 +19,6 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class Auton1MobilityBonus extends CommandGroup {
     
     public  Auton1MobilityBonus() {
-//        addSequential(new DriveForDistance(4)); // Could do this with time delay
 	addSequential(new ArcadeDriveWithInputs(-1,0,2));
     }
 }

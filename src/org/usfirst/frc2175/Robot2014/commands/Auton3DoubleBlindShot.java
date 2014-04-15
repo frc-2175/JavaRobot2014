@@ -59,31 +59,39 @@ public class Auton3DoubleBlindShot extends CommandGroup {
                 
                 */
         
-        addSequential(new ArcadeDriveWithInputs(-1,-0.1,1.25,true));
+        addSequential(new ArcadeDriveWithInputs(-1,0,1.15,false,true));
         
-        addSequential(new ArcadeDriveWithInputs(-0.5,-0.1,0.5,true));
-        
+        addSequential(new ArcadeDriveWithInputs(-0.5,0,0.25,false,false));
+        addSequential(new Delay(0.2));  // very brief stop for bot settling
+
         addSequential(new MoveArmOut());
         
-        addSequential(new Delay(0.75));
+        addSequential(new Delay(0.3));
         
-        addSequential(new Shoot(false));
+        addSequential(new WinchLauncherDown()); // This is basically the shoot sequence, without the end winching
+	addSequential(new UnwindWinch());
+	addSequential(new ReleaseLatch());
         
-        addParallel(new UnwindWinch());
-        addParallel(new RunRollerBar(2));
-        addSequential(new ArcadeDriveWithInputs(1,0,2,true));
+        
+        addParallel(new ArcadeDriveWithInputs(1,0,1.75,false,false));
+        addParallel(new WinchLauncherDown());
+        addSequential(new RunRollerBar(1.3));
+        //addParallel(new RunRollerBar(2));
+        //addSequential(new ArcadeDriveWithInputs(1,0,1.5,false,false));
         
         addParallel(new RunRollerBar(0.5));
-        addSequential(new ArcadeDriveWithInputs(0.5,0,0.5,true));
+        addSequential(new ArcadeDriveWithInputs(0.5,0,0.65,false,false));
         
+        addParallel(new UnwindWinch());
         addParallel(new MoveArmIn());
-        addSequential(new ArcadeDriveWithInputs(-1,-0.15,2.5,true));
+        addSequential(new ArcadeDriveWithInputs(-1,0,1.8,false,false));
         
-        addSequential(new ArcadeDriveWithInputs(-0.5,-0.1,0.5,true));
+        addSequential(new ArcadeDriveWithInputs(-0.5,0,0.25,false,false));
+        addSequential(new Delay(0.2));  // very brief stop for bot settling
         
         addSequential(new MoveArmOut());
         
-        addSequential(new Delay(0.75));
+        addSequential(new Delay(0.3));
         
         addSequential(new Shoot());
     }

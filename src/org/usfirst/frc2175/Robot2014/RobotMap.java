@@ -91,10 +91,10 @@ public class RobotMap {
         armRollerBar = new Talon(1, 4);
 	LiveWindow.addActuator("Arm", "Roller Bar", (Talon) armRollerBar);
         
-        armArmOutSwitch1 = new DigitalInput(1, 11); // FOR ATLAS: 10
+        armArmOutSwitch1 = new DigitalInput(1, 10); // FOR GREG: 11
 	LiveWindow.addSensor("Arm", "Arm Out Switch 1", armArmOutSwitch1);
         
-        armArmOutSwitch2 = new DigitalInput(1, 6); // FOR ATLAS: 9
+        armArmOutSwitch2 = new DigitalInput(1, 9); // FOR GREG: 6
 	LiveWindow.addSensor("Arm", "Arm Out Switch 2", armArmOutSwitch2);
         
         launcherLatchSwitch = new DigitalInput(1, 5);

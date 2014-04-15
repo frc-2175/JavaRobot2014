@@ -20,25 +20,25 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class Auton4LowGoal extends CommandGroup {
     
     public  Auton4LowGoal() {
-        addParallel(new ShiftToHighGear(),1.5); // This should stay tensioned
+        addParallel(new TensionLauncher(),1.5); // This should stay tensioned
         addSequential(new MoveArmOut());
         
-        addSequential(new Delay(0.75));
+        addSequential(new Delay(0.5));
         
         addSequential(new Shoot(false));
         
         addParallel(new RunRollerBar(),0.5);
+        addParallel(new UnwindWinch());
         addSequential(new ArcadeDriveWithInputs(0.75,0,0.5));
         
         addParallel(new MoveArmIn());
-        addParallel(new UnwindWinch());
-        addSequential(new ArcadeDriveWithInputs(-1,-0.15,2.0));
+        addSequential(new ArcadeDriveWithInputs(-1,0,2.0));
         
-        addSequential(new ArcadeDriveWithInputs(-0.5,-0.1,0.5));
+        addSequential(new ArcadeDriveWithInputs(-0.5,0,0.5));
         
         addSequential(new MoveArmOut());
         
-        addSequential(new Delay(0.75));
+        addSequential(new Delay(0.5));
         
         addSequential(new Shoot());
     }

@@ -39,7 +39,7 @@ public class  WinchLauncherDown extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
         if (Robot.arm.IsArmOut() || Robot.oi.shouldOverrideWinch()) {
-		Robot.launcher.RunWinchAtSpeed(.85);
+		Robot.launcher.RunWinchAtSpeed(1);
 	} else {
 		Robot.launcher.RunWinchAtSpeed(0);
 	}

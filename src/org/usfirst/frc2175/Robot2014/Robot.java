@@ -89,7 +89,7 @@ public class Robot extends IterativeRobot {
         
         SmartDashboard.putNumber("Drivetrain Fudge Factor",0);
         SmartDashboard.putNumber("Arm Out Roller Speed",0.3);
-        SmartDashboard.putNumber("Straight Driving Tuning",1);
+        SmartDashboard.putNumber("Straight Driving Tuning",5);
         SmartDashboard.putNumber("Straight Driving Range",0.5);
     }
 

@@ -13,7 +13,7 @@
 		<location x="1029" y="45"/>
 	</widget>
 	<widget field="Blind Shot Roller Delay" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="593" y="60"/>
+		<location x="593" y="58"/>
 	</widget>
 	<widget field="Auton Slow Drive Time" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
 		<location x="590" y="313"/>
