@@ -1,5 +1,8 @@
 <xml version="1.0">
 <dashboard>
+	<widget field="Ramping Max_Delta" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="851" y="373"/>
+	</widget>
 	<widget field="Turning Amount" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
 		<location x="594" y="109"/>
 	</widget>
@@ -62,7 +65,7 @@
 		<location x="905" y="98"/>
 	</widget>
 	<widget field="ReleaseLatch" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="980" y="244"/>
+		<location x="950" y="240"/>
 	</widget>
 	<widget field="MoveArmOut" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
 		<location x="884" y="39"/>
@@ -71,7 +74,7 @@
 		<location x="587" y="8"/>
 	</widget>
 	<widget field="Autonomous Routine" type="String Chooser" class="edu.wpi.first.smartdashboard.gui.elements.Chooser">
-		<location x="1093" y="279"/>
+		<location x="1091" y="251"/>
 	</widget>
 	<widget field="WinchLauncherDown" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
 		<location x="877" y="206"/>
