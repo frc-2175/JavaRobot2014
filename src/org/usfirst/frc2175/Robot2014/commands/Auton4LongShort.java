@@ -17,9 +17,9 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
  * and does a short shot. Obviously the name of this file does not currently
  * match up with the actual behavior of the routine.
  */
-public class Auton4LowGoal extends CommandGroup {
+public class Auton4LongShort extends CommandGroup {
     
-    public  Auton4LowGoal() {
+    public  Auton4LongShort() {
         addParallel(new TensionLauncher(),1.5); // This should stay tensioned
         addSequential(new MoveArmOut());
         

@@ -77,11 +77,10 @@ public class Robot extends IterativeRobot {
 	autoChooser.addObject("1 - Mobility Bonus", new Auton1MobilityBonus());
 	autoChooser.addObject("2 - Blind Shot", new Auton2BlindShot());
 	autoChooser.addObject("3 - Double Blind Shot", new Auton3DoubleBlindShot());
-	autoChooser.addObject("4 - Low Goal", new Auton4LowGoal());
+	autoChooser.addObject("4 - Long Goal/Short Goal", new Auton4LongShort());
 	autoChooser.addObject("5 - Hot Goal", new Auton5HotGoal());
-	autoChooser.addObject("6 - Double Hot Goal", new Auton6DoubleHotGoalSANE());
-//	autoChooser.addObject("4 - Hot Goal, Mobility Bonus", /* tbd */);
-//	autoChooser.addObject("5 - High Goal, Hot Goal, Mobility Bonus", /* tbd */);
+        autoChooser.addObject("6 - Double Hot Goal", new Auton6DoubleHotGoalSANE());
+	autoChooser.addObject("-1 - Test", new AutonMinus1Test());
 	SmartDashboard.putData("Autonomous Routine",autoChooser);
         
         enabledLights = new DigitalOutput(1,13);
