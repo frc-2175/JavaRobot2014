@@ -1,5 +1,8 @@
 <xml version="1.0">
 <dashboard>
+	<widget field="Delta-t" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.FormattedField">
+		<location x="584" y="208"/>
+	</widget>
 	<widget field="Ramping Max_Delta" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
 		<location x="851" y="373"/>
 	</widget>
@@ -85,4 +88,5 @@
 </dashboard>
 <live-window>
 </live-window>
+	<hidden field="Output"/>
 </xml>

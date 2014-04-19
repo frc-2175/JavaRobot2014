@@ -43,9 +43,16 @@ public class  ArcadeDriveWithJoysticks extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        Robot.drivetrain.ArcadeDriveWithParameters(
-                forwardRamp.rampInput(Robot.oi.getForwardSpeed()),
-                Robot.oi.getTurningSpeed());
+        double forwardValue = Robot.oi.getForwardSpeed();
+        double turningValue = Robot.oi.getTurningSpeed();
+        
+        double rampedForward = forwardRamp.rampInput(forwardValue);
+        
+        if (Robot.oi.getJoystickLeft().getRawButton(4) && Robot.oi.getJoystickRight().getRawButton(5)) {
+            Robot.drivetrain.ArcadeDriveWithParameters(forwardValue, turningValue);
+        } else {
+            Robot.drivetrain.ArcadeDriveWithParameters(rampedForward, turningValue);
+        }
         if (Robot.oi.getJoystickRight().getRawButton(3)) {
             forwardRamp = new Ramp(SmartDashboard.getNumber("Ramping Max_Delta"));
             forwardRamp.init();

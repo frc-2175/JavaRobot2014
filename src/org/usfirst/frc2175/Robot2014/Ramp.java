@@ -1,5 +1,5 @@
 package org.usfirst.frc2175.Robot2014;
-
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class Ramp {
     private double output;
     private double prevTime;
@@ -30,7 +30,9 @@ public class Ramp {
         } else {
             output = input;
         }
-
+        SmartDashboard.putNumber("Delta-t", dt);
+        SmartDashboard.putNumber("Output", output);
+        
         prevTime = newTime;
 
         return output;
