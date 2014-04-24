@@ -38,8 +38,10 @@ public class Shoot extends CommandGroup {
 	addSequential(new UnwindWinch());
 	addSequential(new ReleaseLatch());
 	addSequential(new WinchLauncherDown());
-	if (unwind)
-		addSequential(new UnwindWinch());
+	if (unwind) {
+            addSequential(new UnwindWinch());
+            addSequential(new UnwindWinch(0.25,true));
+        }
         
     }
 }

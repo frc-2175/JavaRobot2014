@@ -79,13 +79,14 @@ public class Auton3DoubleBlindShot extends CommandGroup {
         //addParallel(new RunRollerBar(2));
         //addSequential(new ArcadeDriveWithInputs(1,0,1.5,false,false));
         
-        addParallel(new RunRollerBar(0.5));
+        addParallel(new RunRollerBar(1.0));
         addSequential(new ArcadeDriveWithInputs(0.5,0,0.65,false,false));
         
         addParallel(new UnwindWinch());
         addParallel(new MoveArmIn());
         addSequential(new ArcadeDriveWithInputs(-1,0,1.8,false,false));
         
+        addParallel(new UnwindWinch(0.25,true));
         addSequential(new ArcadeDriveWithInputs(-0.5,0,0.25,false,false));
         addSequential(new Delay(0.2));  // very brief stop for bot settling
         

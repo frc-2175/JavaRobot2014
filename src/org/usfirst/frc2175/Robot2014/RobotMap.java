@@ -95,6 +95,7 @@ public class RobotMap {
 	LiveWindow.addSensor("Arm", "Arm Out Switch 1", armArmOutSwitch1);
         
         armArmOutSwitch2 = new DigitalInput(1, 9); // FOR GREG: 6
+        
 	LiveWindow.addSensor("Arm", "Arm Out Switch 2", armArmOutSwitch2);
         
         launcherLatchSwitch = new DigitalInput(1, 5);
