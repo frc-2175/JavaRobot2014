@@ -79,7 +79,7 @@ public class Auton3DoubleBlindShot extends CommandGroup {
         //addParallel(new RunRollerBar(2));
         //addSequential(new ArcadeDriveWithInputs(1,0,1.5,false,false));
         
-        addParallel(new RunRollerBar(1.0));
+        addParallel(new RunRollerBar(0.75));
         addSequential(new ArcadeDriveWithInputs(0.5,0,0.65,false,false));
         
         addParallel(new UnwindWinch());

@@ -70,6 +70,8 @@ public class OI {
     public JoystickButton releaseLatchOverride;    
     public JoystickButton manualWinchDown;
     public JoystickButton manualWinchUp;
+    public JoystickButton unwindWinchForPop;
+    public JoystickButton unwindWinchExtraForShot;
 
     public OI() {
         gamepad = new Joystick(3);
@@ -89,6 +91,11 @@ public class OI {
         manualWinchDown.whileHeld(new WinchLauncherDown());
         manualWinchDown = new JoystickButton(gamepad, 10);
         manualWinchDown.whileHeld(new UnwindWinch());
+        unwindWinchForPop = new JoystickButton(gamepad, 2);
+        unwindWinchForPop.whenPressed(new UnwindWinch(0.2,false));
+        unwindWinchExtraForShot = new JoystickButton(gamepad, 3);
+        unwindWinchExtraForShot.whenPressed(new UnwindWinch(0.25,true));
+        
         
         joystickRight = new Joystick(2);
         commandShiftButton = new JoystickButton(joystickRight, 1);
