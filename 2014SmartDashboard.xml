@@ -1,5 +1,14 @@
 <xml version="1.0">
 <dashboard>
+	<widget field="Output" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="575" y="130"/>
+	</widget>
+	<widget field="Delta-t" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="575" y="81"/>
+	</widget>
+	<widget field="Ramping Max_Delta" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="575" y="29"/>
+	</widget>
 	<widget field="Turning Amount" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
 		<location x="594" y="109"/>
 	</widget>
