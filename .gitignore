@@ -187,8 +187,8 @@ $RECYCLE.BIN/
 ## Python
 #############
 
-# we need python files...
-#*.py[co]
+# Python object files (.pyc or .pyo NOT .py)
+*.py[co]
 
 # Packages
 *.egg
