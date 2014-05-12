@@ -59,8 +59,8 @@ public class  DriveForDistance extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        double PIDOut = Robot.drivetrain.encoderPID.get();
-	Robot.drivetrain.ArcadeDriveWithParameters(PIDOut,0);
+        double PIDval = Robot.drivetrain.encoderPID.get();
+	Robot.drivetrain.ArcadeDriveWithParameters(PIDval,0);
     }
 
     // Make this return true when this Command no longer needs to run execute()

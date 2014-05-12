@@ -41,6 +41,7 @@ public class  DriveToAngle extends Command {
 	Robot.drivetrain.gyroPID.reset();
 	Robot.drivetrain.gyroPID.setSetpoint(inputAngle);
 	
+        // reset P, I, D coeffs from Dashboard for debug / tuning
 //	Robot.drivetrain.gyroPID.setPID(SmartDashboard.getNumber("P"),SmartDashboard.getNumber("I")/1000,0);
 	
 	Robot.drivetrain.gyroPID.enable();
@@ -48,10 +49,10 @@ public class  DriveToAngle extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        double PIDOut = Robot.drivetrain.gyroPID.get();
-	SmartDashboard.putNumber("Gyro Heading", Robot.drivetrain.GetGyroAngle());
-	SmartDashboard.putNumber("PID Output", PIDOut);
-	Robot.drivetrain.ArcadeDriveWithParameters(0,PIDOut);
+        double PIDval = Robot.drivetrain.gyroPID.get();
+        SmartDashboard.putNumber("Gyro Heading", Robot.drivetrain.GetGyroAngle());
+	SmartDashboard.putNumber("PID Output", PIDval);
+	Robot.drivetrain.ArcadeDriveWithParameters(0,PIDval);
     }
 
     // Make this return true when this Command no longer needs to run execute()
