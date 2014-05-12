@@ -899,4 +899,4 @@ Properties:
     name: Export Commands, validators: null, value: true}
   Java Project Directory: !!robotbuilder.data.properties.FileProperty {default: /home/aren/NetBeansProjects,
     extension: null, folder: true, name: Java Project Directory, validators: null,
-    value: /data/files/Documents/GitHub/JavaRobot2014}
+    value: /data/files/Documents/GitHub}
