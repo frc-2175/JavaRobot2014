@@ -886,7 +886,7 @@ Properties:
     folder: false, name: Wiring File, validators: null, value: WiringTable.html}
   C++ Windriver Workspace: !!robotbuilder.data.properties.FileProperty {default: 'C:\Windriver\workspace',
     extension: null, folder: true, name: C++ Windriver Workspace, validators: null,
-    value: 'C:\WindRiver\FRC2014Beta'}
+    value: '/data/files/Documents/GitHub/JavaRobot2014/C:\WindRiver\FRC2014Beta'}
   Use Default Java Package: !!robotbuilder.data.properties.BooleanProperty {default: true,
     name: Use Default Java Package, validators: null, value: true}
   Java Package: !!robotbuilder.data.properties.StringProperty {default: org.usfirst.frc0000,
@@ -899,4 +899,4 @@ Properties:
     name: Export Commands, validators: null, value: true}
   Java Project Directory: !!robotbuilder.data.properties.FileProperty {default: /home/aren/NetBeansProjects,
     extension: null, folder: true, name: Java Project Directory, validators: null,
-    value: 'C:\Users\Leonard\NetBeansProjects'}
+    value: /data/files/Documents/GitHub/JavaRobot2014}
