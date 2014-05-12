@@ -11,28 +11,27 @@
 
 package org.usfirst.frc2175.Robot2014.commands;
 import edu.wpi.first.wpilibj.command.CommandGroup;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
- *
+ * This routine drives forward, waits for the goal to be hot, and takes a short
+ * shot.
  */
 public class Auton5HotGoal extends CommandGroup {
     
     public  Auton5HotGoal() {
-        // Add Commands here:
-        // e.g. addSequential(new Command1());
-        //      addSequential(new Command2());
-        // these will run in order.
+        
+        addSequential(new ArcadeDriveWithInputs(-1,0,1.25,true,true));
+        
+        addSequential(new ArcadeDriveWithInputs(-0.5,0,0.5,true,false));
+        
+        addSequential(new MoveArmOut());
+        
+        addSequential(new Delay(1.25));
+        
+        addSequential(new WaitForHotGoal(),3);
+        
+        addSequential(new Shoot());
 
-        // To run multiple commands at the same time,
-        // use addParallel()
-        // e.g. addParallel(new Command1());
-        //      addSequential(new Command2());
-        // Command1 and Command2 will run in parallel.
-
-        // A command group will require all of the subsystems that each member
-        // would require.
-        // e.g. if Command1 requires chassis, and Command2 requires arm,
-        // a CommandGroup containing them would require both the chassis and the
-        // arm.
     }
 }

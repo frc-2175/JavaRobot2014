@@ -11,28 +11,26 @@
 
 package org.usfirst.frc2175.Robot2014.commands;
 import edu.wpi.first.wpilibj.command.CommandGroup;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
- *
+ * This auton routine drives forward and scores a short shot in the goal.
+ * It does NOT check if the goal is hot.
  */
 public class Auton2BlindShot extends CommandGroup {
     
     public  Auton2BlindShot() {
-        // Add Commands here:
-        // e.g. addSequential(new Command1());
-        //      addSequential(new Command2());
-        // these will run in order.
+        
+//        addSequential(new DriveForDistance(6)); // could do this with time delay
+        addSequential(new ArcadeDriveWithInputs(-1,0,1.25,true,true));
+        
+        addSequential(new ArcadeDriveWithInputs(-0.5,0,0.5,true,false));
+        
+        addSequential(new MoveArmOut());
+        
+        addSequential(new Delay(1.75));
+        
+        addSequential(new Shoot());
 
-        // To run multiple commands at the same time,
-        // use addParallel()
-        // e.g. addParallel(new Command1());
-        //      addSequential(new Command2());
-        // Command1 and Command2 will run in parallel.
-
-        // A command group will require all of the subsystems that each member
-        // would require.
-        // e.g. if Command1 requires chassis, and Command2 requires arm,
-        // a CommandGroup containing them would require both the chassis and the
-        // arm.
     }
 }
