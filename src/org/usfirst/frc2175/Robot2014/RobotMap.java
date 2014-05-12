@@ -30,7 +30,6 @@ public class RobotMap {
     public static RobotDrive drivetrainRobotDrive;
     public static Encoder drivetrainLeftEncoder;
     public static Encoder drivetrainRightEncoder;
-    //public static SpeedController drivetrainMagicPIDOutput;
     public static Gyro drivetrainGyro;
     public static DoubleSolenoid drivetrainShifters;
     public static DoubleSolenoid armArmSolenoid;
@@ -74,8 +73,6 @@ public class RobotMap {
         drivetrainRightEncoder.setDistancePerPulse(5.887E-4);
         drivetrainRightEncoder.setPIDSourceParameter(PIDSourceParameter.kDistance);
         drivetrainRightEncoder.start();
-        //drivetrainMagicPIDOutput = new Talon(1, 10);
-	//LiveWindow.addActuator("Drivetrain", "Magic PID Output", (Talon) drivetrainMagicPIDOutput);
         
         drivetrainGyro = new Gyro(1, 1);
 	LiveWindow.addSensor("Drivetrain", "Gyro", drivetrainGyro);
@@ -105,11 +102,11 @@ public class RobotMap {
         launcherWinchMotor = new Talon(1, 3);
 	LiveWindow.addActuator("Launcher", "Winch Motor", (Talon) launcherWinchMotor);
         
-/*        launcherWinchEncoder = new Encoder(1, 11, 1, 12, false, EncodingType.k4X);
+        launcherWinchEncoder = new Encoder(1, 11, 1, 12, false, EncodingType.k4X);
 	LiveWindow.addSensor("Launcher", "Winch Encoder", launcherWinchEncoder);
         launcherWinchEncoder.setDistancePerPulse(1.0);
         launcherWinchEncoder.setPIDSourceParameter(PIDSourceParameter.kRate);
-        launcherWinchEncoder.start(); */
+        launcherWinchEncoder.start();
         launcherBallSensor = new AnalogChannel(1, 2);
 	LiveWindow.addSensor("Launcher", "Ball Sensor", launcherBallSensor);
         
