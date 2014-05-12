@@ -13,35 +13,26 @@ package org.usfirst.frc2175.Robot2014.commands;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
- * This routine runs the automatic shoot sequence, which gets the shooter ready
- * to fire and then fires. It can optionally omit the last unwinding step so
- * that autonomous routines can proceed with other tasks and handle the
- * unsinding themselves.
+ *
  */
 public class Shoot extends CommandGroup {
     
-    /**
-     * Constructs this command to go through the full sequence.
-     */
-    public Shoot() {
-        this(true);
-    }
-    
-    /**
-     * Constructs this command to go through the sequence, with an option
-     * to omit the final unwinding step.
-     * @param unwind Whether to unwind the winch after the shot.
-     */
-    public Shoot(boolean unwind) {
-        
-	addSequential(new WinchLauncherDown());
-	addSequential(new UnwindWinch());
-	addSequential(new ReleaseLatch());
-	addSequential(new WinchLauncherDown());
-	if (unwind) {
-            addSequential(new UnwindWinch());
-            addSequential(new UnwindWinch(0.25,true));
-        }
-        
+    public  Shoot() {
+        // Add Commands here:
+        // e.g. addSequential(new Command1());
+        //      addSequential(new Command2());
+        // these will run in order.
+
+        // To run multiple commands at the same time,
+        // use addParallel()
+        // e.g. addParallel(new Command1());
+        //      addSequential(new Command2());
+        // Command1 and Command2 will run in parallel.
+
+        // A command group will require all of the subsystems that each member
+        // would require.
+        // e.g. if Command1 requires chassis, and Command2 requires arm,
+        // a CommandGroup containing them would require both the chassis and the
+        // arm.
     }
 }

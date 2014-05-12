@@ -11,89 +11,28 @@
 
 package org.usfirst.frc2175.Robot2014.commands;
 import edu.wpi.first.wpilibj.command.CommandGroup;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
- * This auton routine drives forward, takes a short shot, drives back, picks up
- * another ball, and takes another short shot.
+ *
  */
 public class Auton3DoubleBlindShot extends CommandGroup {
     
     public  Auton3DoubleBlindShot() {
-        
-        /*
-        
-//        addParallel(new TensionLauncher());
-        addSequential(new MoveArmOut());
-        
-        addSequential(new Delay(1.75));
-        
-//        addParallel(new TensionLauncher());
-        addSequential(new Shoot(false));
-	
-//        addParallel(new TensionLauncher());
-	addParallel(new RunRollerBar(),1);
-	addSequential(new UnwindWinch());
-        
-        addParallel(new RunRollerBar(),0.75);
-        addSequential(new ArcadeDriveWithInputs(0.5,0,0.75));
-        
-        addSequential(new ArcadeDriveWithInputs(-0.5,0,0.75));
-        
-        addSequential(new Delay(1.75));
-                
-//        addParallel(new TensionLauncher());
-//	addParallel(new RunRollerBar());
-//	addSequential(new Delay(1)); // To make sure the ball gets in
-//        addSequential(new Delay(SmartDashboard.getNumber("Blind Shot Roller Delay")));
-//	addSequential(new WaitForBall());
-	
-//        addParallel(new TensionLauncher());
-	addSequential(new ReleaseLatch());
-	
-        addParallel(new TensionLauncher()); // We should already be tensioned. This is here to untension us at the end of auton.
-	addParallel(new ArcadeDriveWithInputs(-0.75,0,2,true));
-	addSequential(new WinchLauncherDown());
-	
-	addSequential(new UnwindWinch());
-                
-                */
-        
-        addSequential(new ArcadeDriveWithInputs(-1,0,1.15,false,true));
-        
-        addSequential(new ArcadeDriveWithInputs(-0.5,0,0.25,false,false));
-        addSequential(new Delay(0.2));  // very brief stop for bot settling
+        // Add Commands here:
+        // e.g. addSequential(new Command1());
+        //      addSequential(new Command2());
+        // these will run in order.
 
-        addSequential(new MoveArmOut());
-        
-        addSequential(new Delay(0.3));
-        
-        addSequential(new WinchLauncherDown()); // This is basically the shoot sequence, without the end winching
-	addSequential(new UnwindWinch());
-	addSequential(new ReleaseLatch());
-        
-        
-        addParallel(new ArcadeDriveWithInputs(1,0,1.75,false,false));
-        addParallel(new WinchLauncherDown());
-        addSequential(new RunRollerBar(1.3));
-        //addParallel(new RunRollerBar(2));
-        //addSequential(new ArcadeDriveWithInputs(1,0,1.5,false,false));
-        
-        addParallel(new RunRollerBar(1.0));
-        addSequential(new ArcadeDriveWithInputs(0.5,0,0.65,false,false));
-        
-        addParallel(new UnwindWinch());
-        addParallel(new MoveArmIn());
-        addSequential(new ArcadeDriveWithInputs(-1,0,1.8,false,false));
-        
-        addParallel(new UnwindWinch(0.25,true));
-        addSequential(new ArcadeDriveWithInputs(-0.5,0,0.25,false,false));
-        addSequential(new Delay(0.2));  // very brief stop for bot settling
-        
-        addSequential(new MoveArmOut());
-        
-        addSequential(new Delay(0.3));
-        
-        addSequential(new Shoot());
+        // To run multiple commands at the same time,
+        // use addParallel()
+        // e.g. addParallel(new Command1());
+        //      addSequential(new Command2());
+        // Command1 and Command2 will run in parallel.
+
+        // A command group will require all of the subsystems that each member
+        // would require.
+        // e.g. if Command1 requires chassis, and Command2 requires arm,
+        // a CommandGroup containing them would require both the chassis and the
+        // arm.
     }
 }
