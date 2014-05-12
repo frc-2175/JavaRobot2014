@@ -187,6 +187,7 @@ $RECYCLE.BIN/
 ## Python
 #############
 
+# Python object files (.pyc or .pyo NOT .py)
 *.py[co]
 
 # Packages
@@ -217,3 +218,21 @@ nbproject/project.xml
 nbproject/project.bak.xml
 nbproject/private/private.xml
 nbproject/private/private.xml
+
+
+#NetBeans
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+nbactions.xml
+nb-configuration.xml
+
+# Class Files #
+*.class
+
+# Package Files #
+*.jar
+*.war
+*.ear
