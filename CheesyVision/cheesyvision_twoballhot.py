@@ -67,7 +67,10 @@ import numpy as np
 import cv2 as cv
 import socket
 import time
-#from pynetworktables import NetworkTable as nt
+
+ENABLE_NT = False
+if ENABLE_NT:
+	from pynetworktables import NetworkTable as nt
 
 # CHANGE THIS TO BE YOUR TEAM'S cRIO IP ADDRESS!
 HOST, PORT = "10.21.75.2", 1180
@@ -110,8 +113,6 @@ OFF_COLOR = (0,0,255)
 # This is the rate at which we will send updates to the cRIO.
 UPDATE_RATE_HZ = 40.0
 PERIOD = (1.0 / UPDATE_RATE_HZ) * 1000.0
-
-ENABLE_NT = True
 
 def get_time_millis():
     ''' Get the current time in milliseconds. '''

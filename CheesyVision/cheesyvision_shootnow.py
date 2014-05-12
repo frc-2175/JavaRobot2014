@@ -67,7 +67,10 @@ import numpy as np
 import cv2 as cv
 import socket
 import time
-from pynetworktables import NetworkTable as nt
+
+ENABLE_NT = True
+if ENABLE_NT:
+	from pynetworktables import NetworkTable as nt
 
 # CHANGE THIS TO BE YOUR TEAM'S cRIO IP ADDRESS!
 HOST, PORT = "10.21.75.2", 1180
@@ -193,11 +196,13 @@ def main():
     # flow of data.
     last_t = get_time_millis()
 	
-    nt.SetIPAddress(HOST)
-    nt.SetClientMode()
-    nt.Initialize()
+    if ENABLE_NT:
+    	nt.SetIPAddress(HOST)
+    	nt.SetClientMode()
+    	nt.Initialize()
 	
-    table = nt.GetTable('SmartDashboard')
+    	table = nt.GetTable('SmartDashboard')
+    
     connected = False
 
     while 1:
@@ -234,9 +239,9 @@ def main():
 		# Throttle the output
 		cur_time = get_time_millis()
 		if last_t + PERIOD <= cur_time:
-			connected = nt.IsConnected(table)
-			table.PutNumber('IS_RECT', 1.0 if left_on else 0.0)
-			#table.PutBoolean('right_on', right_on)
+			if ENABLE_NT:
+				connected = nt.IsConnected(table)
+				table.PutNumber('IS_RECT', 1.0 if left_on else 0.0)
 			last_t = cur_time
 		# Show the image.
 		cv.imshow(WINDOW_NAME, bg)
