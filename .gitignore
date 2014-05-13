@@ -236,3 +236,5 @@ nb-configuration.xml
 *.war
 *.ear
 
+nbproject/project.xml
+nbproject/project.xml
