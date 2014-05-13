@@ -58,7 +58,7 @@ public class Drivetrain extends Subsystem {
         encoderPID.setOutputRange(-0.8, 0.8);
 
         //gyroPIDOut = new PIDOut();
-        gyroPID = new PIDController(0.05, 0.0001, 0.0,/* F: 0.0, */ gyro, new PIDOut(), 0.02);
+        gyroPID = new PIDController(0.015, 0.001, 0.0,/* F: 0.0, */ gyro, new PIDOut(), 0.02);
         // The output of this controller is irrelevant, since we will get the value manually and use it ourselves.
         LiveWindow.addActuator("Drivetrain", "Gyro PID", gyroPID);
         gyroPID.setContinuous(false);

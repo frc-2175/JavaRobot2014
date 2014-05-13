@@ -13,7 +13,8 @@ package org.usfirst.frc2175.Robot2014.subsystems;
 
 import org.usfirst.frc2175.Robot2014.RobotMap;
 import edu.wpi.first.wpilibj.*;
-import edu.wpi.first.wpilibj.CounterBase.EncodingType; import edu.wpi.first.wpilibj.PIDSource.PIDSourceParameter;
+import edu.wpi.first.wpilibj.CounterBase.EncodingType;
+import edu.wpi.first.wpilibj.PIDSource.PIDSourceParameter;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 
@@ -27,7 +28,6 @@ public class Launcher extends Subsystem {
     DigitalInput winchUpSwitch = RobotMap.launcherWinchUpSwitch;
     SpeedController winchMotor = RobotMap.launcherWinchMotor;
 //    Encoder winchEncoder = RobotMap.launcherWinchEncoder;
-    AnalogChannel ballSensor = RobotMap.launcherBallSensor;
     Solenoid latch = RobotMap.launcherLatch;
     DoubleSolenoid tension = RobotMap.launcherTension;
     Solenoid catcher = RobotMap.launcherCatcher;
@@ -61,26 +61,6 @@ public class Launcher extends Subsystem {
      */
     public boolean IsWinchUp() {
         return !winchUpSwitch.get();
-    }
-    
-    /**
-     * Returns whether there is a ball loaded in the robot.
-     * @return Whether there is a ball loaded in the robot.
-     */
-    public boolean IsBall() {
-        if (ballSensor.getAverageValue() > 100) { /* Whatever threshold indicates a ball */
-            return true;
-        } else {
-            return false;
-        }
-    }
-    
-    /**
-     * Gets the average voltage of the ball sensor.
-     * @return the average voltage of the ball sensor.
-     */
-    public double GetBallSensorVoltage() {
-        return ballSensor.getAverageVoltage();
     }
     
     /**

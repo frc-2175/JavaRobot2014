@@ -63,6 +63,7 @@ public class  DriveToAngle extends Command {
     // Called once after isFinished returns true
     protected void end() {
         Robot.drivetrain.gyroPID.disable();
+        Robot.drivetrain.ArcadeDriveWithParameters(0, 0);
 	System.out.println("Done driving to angle.\n\n");
     }
 

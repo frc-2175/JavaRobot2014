@@ -19,6 +19,10 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class AutonMinus1Test extends CommandGroup {
     
     public AutonMinus1Test() {
-        
+        addSequential(new DriveToAngle(45));
+        addSequential(new Delay(1));
+        addSequential(new DriveToAngle(-45));
+        addSequential(new Delay(1));
+        addSequential(new DriveToAngle(360));
     }
 }

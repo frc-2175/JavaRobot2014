@@ -133,7 +133,6 @@ public class Robot extends IterativeRobot {
 	SmartDashboard.putBoolean("Shooter Up", Robot.launcher.IsWinchUp());
 	SmartDashboard.putBoolean("Arm Out Switch 1", Robot.arm.IsArmSwitch1());
 	SmartDashboard.putBoolean("Arm Out Switch 2", Robot.arm.IsArmSwitch2());
-        SmartDashboard.putNumber("Ball Sensor Average Voltage", Robot.launcher.GetBallSensorVoltage());
         SmartDashboard.putNumber("Gyro Heading",Robot.drivetrain.GetGyroAngle());
     }
 
