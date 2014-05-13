@@ -235,10 +235,3 @@ nb-configuration.xml
 *.jar
 *.war
 *.ear
-
-nbproject/project.xml
-nbproject/project.xml
-
-nbproject\project.xml
-nbproject\project.xml
-*.xml
