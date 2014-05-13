@@ -1,8 +1,5 @@
 <xml version="1.0">
 <dashboard>
-	<widget field="Output" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="575" y="29"/>
-	</widget>
 	<widget field="Delta-t" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.FormattedField">
 		<location x="584" y="208"/>
 	</widget>
@@ -91,4 +88,5 @@
 </dashboard>
 <live-window>
 </live-window>
+	<hidden field="Output"/>
 </xml>
