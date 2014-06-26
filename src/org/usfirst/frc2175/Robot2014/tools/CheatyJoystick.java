@@ -1,15 +1,16 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+package org.usfirst.frc2175.Robot2014.tools;
 
-package org.usfirst.frc2175.Robot2014;
 import edu.wpi.first.wpilibj.*;
 import edu.wpi.first.wpilibj.parsing.IInputOutput;
 
 /**
  *
+ * CheatyJoystick.java
+ * 
+ * This class pretends to be a normal joystick, implementing the same interfaces
+ * so that it can also be used by Buttons.  However, it pulls it's joystick data
+ * from a given CheatyVision object, instead of the joysticks plugged into the DS.
+ * 
  * @author aren
  */
 public class CheatyJoystick extends GenericHID implements IInputOutput{

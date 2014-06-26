@@ -11,15 +11,26 @@
 
 package org.usfirst.frc2175.Robot2014;
 
+import org.usfirst.frc2175.Robot2014.tools.CheatyVision;
+import org.usfirst.frc2175.Robot2014.tools.CheatyJoystick;
 import org.usfirst.frc2175.Robot2014.commands.*;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import edu.wpi.first.wpilibj.*;
+//import edu.wpi.first.wpilibj.*;
 import edu.wpi.first.wpilibj.buttons.*;
 
 
 /**
+ * 
+ * CheatyOI.java
+ * 
  * This class is the glue that binds the controls on the physical operator
  * interface to the commands and command groups that allow control of the robot.
+ * 
+ * This version has been copied from the original OI.java used in 2014 season,
+ * replacing normal Joysticks with CheatyJoysticks and instantiating a CheatyVision
+ * handler.
+ * 
+ * @author aren
  */
 public class CheatyOI {
     //// CREATING BUTTONS

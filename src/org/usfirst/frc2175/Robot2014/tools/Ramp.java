@@ -1,4 +1,4 @@
-package org.usfirst.frc2175.Robot2014;
+package org.usfirst.frc2175.Robot2014.tools;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class Ramp {
     private double output;
