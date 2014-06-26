@@ -9,14 +9,14 @@ package org.usfirst.frc2175.Robot2014.tools;
  * @author aren
  */
 public class Encode {
-    public static String floatToBitString(float input) {
+    private static String floatToBitString(float input) {
         String bitStr = Integer.toBinaryString(Float.floatToIntBits(input));
         //bitStr = String.format("%32s", bitStr).replace(" ","0");
         bitStr = ("00000000000000000000000000000000"+bitStr).substring(Math.min(bitStr.length(), 32));
         return bitStr;
     }
     
-    public static float bitStringToFloat(String input) {
+    private static float bitStringToFloat(String input) {
         // Integer.parseInt() doesn't handle 2s complement properly >:(
         // hence this hack
         if (input.length() > 31) {
@@ -29,7 +29,7 @@ public class Encode {
         else return Float.intBitsToFloat(Integer.parseInt(input, 2));
     }
     
-    public static String floatArrayToBitString(float[] input) {
+    private static String floatArrayToBitString(float[] input) {
         String str = "";
         for (int i = 0; i < input.length; i++) {
             str += floatToBitString(input[i]);
@@ -37,10 +37,12 @@ public class Encode {
         return str;
     }
     
-    public static float[] bitStringToFloatArray(String input) {
+    private static float[] bitStringToFloatArray(String input) {
         float[] floats = new float[input.length()/32];
         for (int i = 0; i < floats.length; i++) {
-            floats[i] = bitStringToFloat(input.substring(i*32, (i+1)*32));
+            int endIndex = input.length()-32*i;
+            int arrIndex = floats.length - i - 1;
+            floats[arrIndex] = bitStringToFloat(input.substring(Math.max(0, endIndex-32), endIndex));
         }
         return floats;
     }
@@ -48,7 +50,7 @@ public class Encode {
     private static String booleanArrayToBitString(boolean[] input) {
         String str = "";
         for (int i = 0; i < input.length; i++) {
-            str += input[i] ? "1" : "0";
+            str = (input[i] ? "1" : "0") + str;
         }
         return str;
     }
@@ -56,33 +58,29 @@ public class Encode {
     private static boolean[] bitStringToBooleanArray(String input) {
         boolean[] bools = new boolean[input.length()];
         for (int i = 0; i < bools.length; i++) {
-            bools[i] = input.charAt(i) == '1';
+            bools[bools.length - i - 1] = input.charAt(i) == '1';
         }
         return bools;
     }
     
-    public static String charStringToBitString(String input) {
+    private static String charStringToBitString(String input) {
         String str = "";
         for (int i = 0; i < input.length(); i++) {
             int charValue = -59 + (int)input.charAt(i);
             String bitStr = Integer.toBinaryString(charValue);
             bitStr = ("00000000"+bitStr).substring(Math.min(bitStr.length()+2, 10));
-            //System.out.println(charValue);
-            //System.out.println(bitStr);
             str += bitStr;
         }
-        
-        //System.out.println(str);
         
         return str;
     }
     
-    public static String bitStringToCharString(String input) {
+    private static String bitStringToCharString(String input) {
         String str = "";
         for (int i = 0; i < input.length(); i += 6) {
-            int charValue = 59 + Integer.parseInt(input.substring(i, Math.min(i+6,input.length())), 2);
-            System.out.println(charValue);
-            str += String.valueOf((char)charValue);
+            int endIndex = input.length() - i;
+            int charValue = 59 + Integer.parseInt(input.substring(Math.max(0,endIndex-6), endIndex), 2);
+            str = String.valueOf((char)charValue) + str;
         }
         return str;
     }
