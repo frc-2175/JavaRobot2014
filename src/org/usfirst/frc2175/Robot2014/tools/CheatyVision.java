@@ -1,8 +1,7 @@
 package org.usfirst.frc2175.Robot2014.tools;
 
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-//import edu.wpi.first.wpilibj.networktables.NetworkTable;
-//import edu.wpi.first.wpilibj.networktables2.type.*;
+
 /**
  *
  * CheatyVision.java
@@ -27,13 +26,7 @@ public class CheatyVision {
     private final float[][] m_axes = new float[kNumberJoysticks][kNumberAxes];;
     private final boolean[][] m_buttons = new boolean[kNumberJoysticks][kNumberButtons];
     
-    //private NumberArray m_axes;
-    //private BooleanArray m_buttons;
-    //private final NetworkTable m_nt;
-    
-    public CheatyVision() {
-        //m_nt = NetworkTable.getTable("SmartDashboard");
-    }
+    public CheatyVision() { }
     
     public void update() {
         String QRHash = SmartDashboard.getString(hashID);
@@ -44,18 +37,13 @@ public class CheatyVision {
         // for the moment don't bother with sticks 1 and 2, just map to gamepad to test
         m_axes[2] = allAxes;
         m_buttons[2] = allButtons;
-        
-        //m_buttons = (BooleanArray)m_nt.getValue(buttonsID);
-        //m_axes = (NumberArray)m_nt.getValue(axesID);
     }
     
     public double getStickAxis(int port, int axis) {
         return m_axes[port - 1][axis - 1];
-        //return m_axes.get(kNumberAxes*(port-1)+axis);
     }
     
     public boolean getStickButton(int port, int button) {
         return m_buttons[port - 1][button - 1];
-        //return m_buttons.get(kNumberButtons*(port-1)+button);
     }
 }

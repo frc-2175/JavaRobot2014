@@ -1,12 +1,13 @@
 package org.usfirst.frc2175.Robot2014.tools;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+
 public class Ramp {
     private double output;
     private double prevTime;
     private double max_delta;
        
-    public Ramp(double max) {
-        max_delta = max;
+    public Ramp(double max_delta) {
+        this.max_delta = max_delta;
     }
         
     public void init(double input) {
@@ -36,5 +37,13 @@ public class Ramp {
         prevTime = newTime;
 
         return output;
+    }
+    
+    public void setMaxDelta(double max_delta) {
+        this.max_delta = max_delta;
+    }
+    
+    public double getMaxDelta() {
+        return max_delta;
     }
 }

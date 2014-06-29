@@ -1,6 +1,6 @@
 package org.usfirst.frc2175.Robot2014.tools;
 
-import edu.wpi.first.wpilibj.*;
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.parsing.IInputOutput;
 
 /**
@@ -13,12 +13,13 @@ import edu.wpi.first.wpilibj.parsing.IInputOutput;
  * 
  * @author aren
  */
-public class CheatyJoystick extends GenericHID implements IInputOutput{
+public class CheatyJoystick extends Joystick implements IInputOutput{
     private final int m_port;
     private final CheatyVision m_cv;
     
-    public CheatyJoystick(CheatyVision cv_base, int port) {
-        m_cv = cv_base;
+    public CheatyJoystick(CheatyVision cv, int port) {
+        super(port);
+        m_cv = cv;
         m_port = port;
     }
     
@@ -37,7 +38,10 @@ public class CheatyJoystick extends GenericHID implements IInputOutput{
         return m_cv.getStickButton(m_port, button);
     }
     
-    /* the rest of this is just here to fill out the GenericHID interface */
+    /* these constants are here to override the ones in Joystick, so we can see
+       what we are assigning to what.  Once that's done, all the getX and other
+       garbage methods will work by looking at our overridden getRaw* mathods.
+    */
     
     static final byte kDefaultXAxis = 1;
     static final byte kDefaultYAxis = 2;
@@ -47,57 +51,5 @@ public class CheatyJoystick extends GenericHID implements IInputOutput{
     static final int kDefaultTriggerButton = 1;
     static final int kDefaultTopButton = 2;
     
-    /* return the X value (one of the auxiliary axes) */
-    /* implemented as part of GenericHID class */
-    /* see constant definition above */
-    public double getX(Hand hand) {
-        return getRawAxis(kDefaultXAxis);
-    }
-    
-    /* return the Y value (one of the auxiliary axes) */
-    /* implemented as part of GenericHID class */
-    /* see constant definition above */
-    public double getY(Hand hand) {
-        return getRawAxis(kDefaultYAxis);
-    }
-    
-    /* return the Z value (one of the auxiliary axes) */
-    /* implemented as part of GenericHID class */
-    /* see constant definition above */
-    public double getZ(Hand hand) {
-        return getRawAxis(kDefaultZAxis);
-    }
-    
-    /* return the twist value (one of the auxiliary axes) */
-    /* implemented as part of GenericHID class */
-    /* see constant definition above */
-    public double getTwist() {
-        return getRawAxis(kDefaultTwistAxis);
-    }
-    
-    /* return the throttle value (one of the auxiliary axes) */
-    /* implemented as part of GenericHID class */
-    /* see constant definition above */
-    public double getThrottle() {
-        return getRawAxis(kDefaultThrottleAxis);
-    }
-    
-    /* return the trigger value (one of the auxiliary axes) */
-    /* implemented as part of GenericHID class */
-    /* see constant definition above */
-    public boolean getTrigger(Hand hand) {
-        return getRawButton(kDefaultTriggerButton);
-    }
-    
-    /* return the top button value (one of the auxiliary axes) */
-    /* implemented as part of GenericHID class */
-    /* see constant definition above */
-    public boolean getTop(Hand hand) {
-        return getRawButton(kDefaultTopButton);
-    }
-    
-    /* dummy method implemented to support GenericHID class */
-    public boolean getBumper(Hand hand) {
-        return false;
-    }
+    // however, we should really just use getRaw* anyway...
 }

@@ -13,8 +13,6 @@ package org.usfirst.frc2175.Robot2014.subsystems;
 
 import org.usfirst.frc2175.Robot2014.RobotMap;
 import edu.wpi.first.wpilibj.*;
-import edu.wpi.first.wpilibj.CounterBase.EncodingType;
-import edu.wpi.first.wpilibj.PIDSource.PIDSourceParameter;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 
