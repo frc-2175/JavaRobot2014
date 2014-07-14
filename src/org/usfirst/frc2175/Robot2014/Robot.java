@@ -81,6 +81,7 @@ public class Robot extends IterativeRobot {
 	autoChooser.addObject("4 - Long Goal/Short Goal", new Auton4LongShort());
 	autoChooser.addObject("5 - Hot Goal", new Auton5HotGoal());
         autoChooser.addObject("6 - Double Hot Goal", new Auton6DoubleHotGoalSANE());
+        autoChooser.addObject("7 - Goalie Avoidance Single Shot", new Auton7GoalieAvoidance());
 	autoChooser.addObject("-1 - Test", new AutonMinus1Test());
 	SmartDashboard.putData("Autonomous Routine",autoChooser);
         

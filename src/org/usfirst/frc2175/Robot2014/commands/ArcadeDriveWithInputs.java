@@ -51,7 +51,7 @@ public class  ArcadeDriveWithInputs extends Command {
      * @param forward The forward driving speed (left joystick)
      * @param turning The turning speed (right joystick)
      * @param time The duration of time for driving. If 0 then the robot will drive infinitely.
-     * @param autoSteer Whether to attempt to drive straight (using a gyro)
+     * @param autoSteer Whether to attempt to drive straight (using a gyro). If a turning value is provided then this will be treated as false.
      * @param resetGyro Whether to reset the gyro before running this command.
      */
     public ArcadeDriveWithInputs(double forward, double turning, double time, boolean autoSteer, boolean resetGyro) {
@@ -65,7 +65,7 @@ public class  ArcadeDriveWithInputs extends Command {
         forwardSpeed = forward;
 	turningSpeed = turning;
 	timeoutTime = time;
-        shouldAutoSteer = autoSteer;
+        shouldAutoSteer = autoSteer && (turningSpeed == 0); // If we are trying to turn, we disable autosteer to avoid confusion
         shouldResetGyro = resetGyro;
 	if (timeoutTime > 0) {
             setTimeout(timeoutTime);
