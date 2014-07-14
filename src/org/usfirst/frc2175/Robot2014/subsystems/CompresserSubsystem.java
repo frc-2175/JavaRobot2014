@@ -12,7 +12,7 @@
 package org.usfirst.frc2175.Robot2014.subsystems;
 
 import org.usfirst.frc2175.Robot2014.RobotMap;
-import edu.wpi.first.wpilibj.Compressor;
+import edu.wpi.first.wpilibj.*;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 

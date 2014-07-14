@@ -13,10 +13,8 @@ package org.usfirst.frc2175.Robot2014;
 
 import org.usfirst.frc2175.Robot2014.commands.*;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.buttons.JoystickButton;
-import org.usfirst.frc2175.Robot2014.tools.CheatyVision;
-import org.usfirst.frc2175.Robot2014.tools.CheatyJoystick;
+import edu.wpi.first.wpilibj.*;
+import edu.wpi.first.wpilibj.buttons.*;
 
 
 /**
@@ -56,7 +54,6 @@ public class OI {
     // until it is finished as determined by it's isFinished method.
     // button.whenReleased(new ExampleCommand());
 
-    public CheatyVision cv_base;
     
     public Joystick joystickLeft;
     public JoystickButton tensionButton;
@@ -75,9 +72,7 @@ public class OI {
     public JoystickButton manualWinchUp;
 
     public OI() {
-        cv_base = new CheatyVision();
-        
-        gamepad = (Joystick)new CheatyJoystick(cv_base, 3);
+        gamepad = new Joystick(3);
         releaseLatchOverride = new JoystickButton(gamepad, 11);
         releaseLatchOverride.whenPressed(new ReleaseLatch());
         shootAndReload = new JoystickButton(gamepad, 8);
@@ -95,11 +90,11 @@ public class OI {
         manualWinchDown = new JoystickButton(gamepad, 10);
         manualWinchDown.whileHeld(new UnwindWinch());
         
-        joystickRight = (Joystick)new CheatyJoystick(cv_base, 2);
+        joystickRight = new Joystick(2);
         commandShiftButton = new JoystickButton(joystickRight, 1);
         commandShiftButton.whileHeld(new ShiftToHighGear());
         
-        joystickLeft = (Joystick)new CheatyJoystick(cv_base, 1);
+        joystickLeft = new Joystick(1);
         tensionButton = new JoystickButton(joystickLeft, 1);
         tensionButton.whileHeld(new TensionLauncher());
         

@@ -2,6 +2,44 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/home/aren/Documents/GitHub/JavaRobot2014/src/org/usfirst/frc2175/JavaRobot2014/commands/Auton3DoubleBlindShot.java</file>
+            <file>file:/home/aren/Documents/GitHub/JavaRobot2014/src/org/usfirst/frc2175/JavaRobot2014/commands/RunRollerBarBackwards.java</file>
+            <file>file:/home/aren/Documents/GitHub/JavaRobot2014/src/org/usfirst/frc2175/JavaRobot2014/commands/ShiftToHighGear.java</file>
+            <file>file:/home/aren/Documents/GitHub/JavaRobot2014/src/org/usfirst/frc2175/JavaRobot2014/subsystems/Launcher.java</file>
+            <file>file:/home/aren/Documents/GitHub/JavaRobot2014/src/org/usfirst/frc2175/JavaRobot2014/commands/Auton2BlindShot.java</file>
+            <file>file:/home/aren/Documents/GitHub/JavaRobot2014/src/org/usfirst/frc2175/JavaRobot2014/commands/ArcadeDriveWithInputs.java</file>
+            <file>file:/home/aren/Documents/GitHub/JavaRobot2014/src/org/usfirst/frc2175/JavaRobot2014/commands/Auton6PartialStartHot.java</file>
+            <file>file:/home/aren/Documents/GitHub/JavaRobot2014/src/org/usfirst/frc2175/JavaRobot2014/commands/UnwindWinch.java</file>
+            <file>file:/home/aren/Documents/GitHub/JavaRobot2014/src/org/usfirst/frc2175/JavaRobot2014/commands/Auton4LongShort.java</file>
+            <file>file:/home/aren/Documents/GitHub/JavaRobot2014/src/org/usfirst/frc2175/JavaRobot2014/Ramp.java</file>
+            <file>file:/home/aren/Documents/GitHub/JavaRobot2014/src/org/usfirst/frc2175/JavaRobot2014/commands/MoveArmIn.java</file>
+            <file>file:/home/aren/Documents/GitHub/JavaRobot2014/src/org/usfirst/frc2175/JavaRobot2014/commands/Shoot.java</file>
+            <file>file:/home/aren/Documents/GitHub/JavaRobot2014/src/org/usfirst/frc2175/JavaRobot2014/commands/Auton6DoubleHotGoalSANE.java</file>
+            <file>file:/home/aren/Documents/GitHub/JavaRobot2014/src/org/usfirst/frc2175/JavaRobot2014/subsystems/Arm.java</file>
+            <file>file:/home/aren/Documents/GitHub/JavaRobot2014/src/org/usfirst/frc2175/JavaRobot2014/commands/DriveForDistance.java</file>
+            <file>file:/home/aren/Documents/GitHub/JavaRobot2014/src/org/usfirst/frc2175/JavaRobot2014/commands/ReleaseLatch.java</file>
+            <file>file:/home/aren/Documents/GitHub/JavaRobot2014/src/org/usfirst/frc2175/JavaRobot2014/commands/WinchLauncherDown.java</file>
+            <file>file:/home/aren/Documents/GitHub/JavaRobot2014/src/org/usfirst/frc2175/JavaRobot2014/commands/AutonMinus1Test.java</file>
+            <file>file:/home/aren/Documents/GitHub/JavaRobot2014/src/org/usfirst/frc2175/JavaRobot2014/OI.java</file>
+            <file>file:/home/aren/Documents/GitHub/JavaRobot2014/src/org/usfirst/frc2175/JavaRobot2014/commands/DriveToAngle.java</file>
+            <file>file:/home/aren/Documents/GitHub/JavaRobot2014/src/org/usfirst/frc2175/JavaRobot2014/subsystems/CompresserSubsystem.java</file>
+            <file>file:/home/aren/Documents/GitHub/JavaRobot2014/src/org/usfirst/frc2175/JavaRobot2014/commands/Delay.java</file>
+            <file>file:/home/aren/Documents/GitHub/JavaRobot2014/src/org/usfirst/frc2175/JavaRobot2014/Robot.java</file>
+            <file>file:/home/aren/Documents/GitHub/JavaRobot2014/src/org/usfirst/frc2175/JavaRobot2014/commands/WaitForHotGoal.java</file>
+            <file>file:/home/aren/Documents/GitHub/JavaRobot2014/src/org/usfirst/frc2175/JavaRobot2014/RobotMap.java</file>
+            <file>file:/home/aren/Documents/GitHub/JavaRobot2014/src/org/usfirst/frc2175/JavaRobot2014/commands/Auton6PartialStartCold.java</file>
+            <file>file:/home/aren/Documents/GitHub/JavaRobot2014/src/org/usfirst/frc2175/JavaRobot2014/PIDOut.java</file>
+            <file>file:/home/aren/Documents/GitHub/JavaRobot2014/src/org/usfirst/frc2175/JavaRobot2014/commands/Auton4LowGoal.java</file>
+            <file>file:/home/aren/Documents/GitHub/JavaRobot2014/src/org/usfirst/frc2175/JavaRobot2014/subsystems/Drivetrain.java</file>
+            <file>file:/home/aren/Documents/GitHub/JavaRobot2014/src/org/usfirst/frc2175/JavaRobot2014/commands/Auton5HotGoal.java</file>
+            <file>file:/home/aren/Documents/GitHub/JavaRobot2014/src/org/usfirst/frc2175/JavaRobot2014/commands/ArcadeDriveWithJoysticks.java</file>
+            <file>file:/home/aren/Documents/GitHub/JavaRobot2014/src/org/usfirst/frc2175/JavaRobot2014/commands/RunRollerBar.java</file>
+            <file>file:/home/aren/Documents/GitHub/JavaRobot2014/src/org/usfirst/frc2175/JavaRobot2014/commands/Auton0DoNothing.java</file>
+            <file>file:/home/aren/Documents/GitHub/JavaRobot2014/src/org/usfirst/frc2175/JavaRobot2014/commands/Auton1MobilityBonus.java</file>
+            <file>file:/home/aren/Documents/GitHub/JavaRobot2014/src/org/usfirst/frc2175/JavaRobot2014/commands/MoveArmOut.java</file>
+            <file>file:/home/aren/Documents/GitHub/JavaRobot2014/src/org/usfirst/frc2175/JavaRobot2014/commands/Auton6DoubleHotGoal.java</file>
+            <file>file:/home/aren/Documents/GitHub/JavaRobot2014/src/org/usfirst/frc2175/JavaRobot2014/commands/TensionLauncher.java</file>
+        </group>
     </open-files>
 </project-private>

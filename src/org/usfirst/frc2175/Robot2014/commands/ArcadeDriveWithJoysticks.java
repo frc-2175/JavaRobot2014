@@ -13,7 +13,7 @@ package org.usfirst.frc2175.Robot2014.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc2175.Robot2014.Robot;
-import org.usfirst.frc2175.Robot2014.tools.Ramp;
+import org.usfirst.frc2175.Robot2014.Ramp;
 import edu.wpi.first.wpilibj.smartdashboard.*;
 
 /**
