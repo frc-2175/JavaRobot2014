@@ -59,9 +59,9 @@ public class Auton3DoubleBlindShot extends CommandGroup {
                 
                 */
         
-        addSequential(new ArcadeDriveWithInputs(-1,0,1.15,false,true));
+        addSequential(new ArcadeDriveWithInputs(-1,0,1.15,false,0.0));
         
-        addSequential(new ArcadeDriveWithInputs(-0.5,0,0.25,false,false));
+        addSequential(new ArcadeDriveWithInputs(-0.5,0,0.25,false,0.0));
         addSequential(new Delay(0.2));  // very brief stop for bot settling
 
         addSequential(new MoveArmOut());
@@ -73,21 +73,21 @@ public class Auton3DoubleBlindShot extends CommandGroup {
 	addSequential(new ReleaseLatch());
         
         
-        addParallel(new ArcadeDriveWithInputs(1,0,1.75,false,false));
+        addParallel(new ArcadeDriveWithInputs(1,0,1.75,false,0.0));
         addParallel(new WinchLauncherDown());
         addSequential(new RunRollerBar(1.3));
         //addParallel(new RunRollerBar(2));
         //addSequential(new ArcadeDriveWithInputs(1,0,1.5,false,false));
         
         addParallel(new RunRollerBar(1.0));
-        addSequential(new ArcadeDriveWithInputs(0.5,0,0.65,false,false));
+        addSequential(new ArcadeDriveWithInputs(0.5,0,0.65,false,0.0));
         
         addParallel(new UnwindWinch());
         addParallel(new MoveArmIn());
-        addSequential(new ArcadeDriveWithInputs(-1,0,1.8,false,false));
+        addSequential(new ArcadeDriveWithInputs(-1,0,1.8,false,0.0));
         
         addParallel(new UnwindWinch(0.25,true));
-        addSequential(new ArcadeDriveWithInputs(-0.5,0,0.25,false,false));
+        addSequential(new ArcadeDriveWithInputs(-0.5,0,0.25,false,0.0));
         addSequential(new Delay(0.2));  // very brief stop for bot settling
         
         addSequential(new MoveArmOut());

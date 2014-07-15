@@ -51,7 +51,7 @@ public class  DriveForDistance extends Command {
 	
 	float setpoint = inputFeet;
 	if (inputBackwards) setpoint *= -1;
-	Robot.drivetrain.ResetEncoders();
+	Robot.drivetrain.resetEncoders();
 	Robot.drivetrain.encoderPID.reset();
 	Robot.drivetrain.encoderPID.setSetpoint(setpoint);
 	Robot.drivetrain.encoderPID.enable();
@@ -60,7 +60,7 @@ public class  DriveForDistance extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
         double PIDval = Robot.drivetrain.encoderPID.get();
-	Robot.drivetrain.ArcadeDriveWithParameters(PIDval,0);
+	Robot.drivetrain.arcadeDriveWithParameters(PIDval,0);
     }
 
     // Make this return true when this Command no longer needs to run execute()

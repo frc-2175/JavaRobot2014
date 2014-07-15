@@ -49,9 +49,9 @@ public class  ArcadeDriveWithJoysticks extends Command {
         double rampedForward = forwardRamp.rampInput(forwardValue);
         
         if (Robot.oi.getJoystickLeft().getRawButton(4) && Robot.oi.getJoystickRight().getRawButton(5)) {
-            Robot.drivetrain.ArcadeDriveWithParameters(forwardValue, turningValue);
+            Robot.drivetrain.arcadeDriveWithParameters(forwardValue, turningValue);
         } else {
-            Robot.drivetrain.ArcadeDriveWithParameters(rampedForward, turningValue);
+            Robot.drivetrain.arcadeDriveWithParameters(rampedForward, turningValue);
         }
         if (Robot.oi.getJoystickRight().getRawButton(3)) {
             forwardRamp = new Ramp(SmartDashboard.getNumber("Ramping Max_Delta"));
@@ -66,7 +66,7 @@ public class  ArcadeDriveWithJoysticks extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-        Robot.drivetrain.ArcadeDriveWithParameters(0,0);
+        Robot.drivetrain.arcadeDriveWithParameters(0,0);
 	System.out.println("Done driving with joysticks.\n\n");
     }
 

@@ -22,9 +22,9 @@ public class Auton7GoalieAvoidance extends CommandGroup {
     
     public  Auton7GoalieAvoidance() {
         
-        addSequential(new ArcadeDriveWithInputs(-1,0,1.65,true,true));
+        addSequential(new ArcadeDriveWithInputs(-1,0,1.65,true,0.0));
         
-        addSequential(new ArcadeDriveWithInputs(-0.5,0,0.25,true,false));
+        addSequential(new ArcadeDriveWithInputs(-0.5,0,0.25,true,0.0));
         addSequential(new Delay(0.2));  // very brief stop for bot settling
 
         addSequential(new MoveArmOut());
@@ -36,7 +36,7 @@ public class Auton7GoalieAvoidance extends CommandGroup {
         
         Random rand = new Random();
         int sign = (rand.nextInt(2) == 1 ? 1 : -1);
-        addSequential(new ArcadeDriveWithInputs(0,sign * 0.7,0.125,false,false));
+        addSequential(new ArcadeDriveWithInputs(0,sign * 0.7,0.125,false,0.0));
         
         addSequential(new Shoot());
 

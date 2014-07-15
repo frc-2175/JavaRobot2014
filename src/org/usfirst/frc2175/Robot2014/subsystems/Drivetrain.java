@@ -12,11 +12,8 @@
 package org.usfirst.frc2175.Robot2014.subsystems;
 
 import org.usfirst.frc2175.Robot2014.RobotMap;
-import org.usfirst.frc2175.Robot2014.Robot;
 import org.usfirst.frc2175.Robot2014.commands.*;
 import edu.wpi.first.wpilibj.*;
-import edu.wpi.first.wpilibj.CounterBase.EncodingType;
-import edu.wpi.first.wpilibj.PIDSource.PIDSourceParameter;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -88,8 +85,12 @@ public class Drivetrain extends Subsystem {
      * @param forward The forward/backward speed, from -1 to 1. (Left joystick)
      * @param turning The right/left turning speed, from -1 to 1. (Right joystick)
      */
-    public void ArcadeDriveWithParameters(double forward, double turning) {
-        ArcadeDriveWithParameters(forward, turning, false);
+    public void arcadeDriveWithParameters(double forward, double turning) {
+        Drivetrain.this.arcadeDriveWithParameters(forward, turning, false);
+    }
+    
+    public void arcadeDriveWithParameters(double forward, double turning, boolean autoSteer) {
+        Drivetrain.this.arcadeDriveWithParameters(forward, turning, autoSteer, 0.0);
     }
     
     /**
@@ -100,25 +101,23 @@ public class Drivetrain extends Subsystem {
      * @param autoSteer Whether to autosteer or not. If enabled, "turning" will
      * be ignored and the robot will attempt to drive in a perfectly straight line.
      */
-    public void ArcadeDriveWithParameters(double forward, double turning, boolean autoSteer) {
+    public void arcadeDriveWithParameters(double forward, double turning, boolean autoSteer, double desiredHeading) {
 	double steerAmount = turning;
         if (autoSteer) {
-            steerAmount = -(Robot.drivetrain.GetGyroAngle() / 40) * SmartDashboard.getNumber("Straight Driving Tuning");
+            steerAmount = -(gyro.getAngle() - desiredHeading) / 40 * SmartDashboard.getNumber("Straight Driving Tuning");
             double range = SmartDashboard.getNumber("Straight Driving Range");
             if (steerAmount > range) steerAmount = range;
             if (steerAmount < -range) steerAmount = -range;
         }
         SmartDashboard.putNumber("Turning Amount", steerAmount);
         robotDrive.arcadeDrive(forward, steerAmount, false);
-//	fakeCompressor.set(1);
-	
     }
     
     /**
      * Shifts the robot to a given gear.
      * @param isHigh Whether to shift to high gear.
      */
-    public void ShiftToGear(boolean isHigh) {
+    public void shiftToGear(boolean isHigh) {
         if (isHigh) {
                 shifters.set(DoubleSolenoid.Value.kForward);
         } else {
@@ -130,14 +129,14 @@ public class Drivetrain extends Subsystem {
      * Returns true if the robot is currently in high gear.
      * @return True, if the robot is in high gear. Otherwise, false.
      */
-    public boolean GetShiftState() {
+    public boolean getShiftState() {
         return shifters.get() == DoubleSolenoid.Value.kForward;
     }
     
     /**
      * Resets both drive encoders so they start counting from 0.
      */
-    public void ResetEncoders() {
+    public void resetEncoders() {
         leftEncoder.reset();
         rightEncoder.reset();
     }
@@ -147,7 +146,7 @@ public class Drivetrain extends Subsystem {
      * both encoders on the drivetrain.
      * @return The distance traveled, in feet.
      */
-    public double GetAverageEncoderDistance() {
+    public double getAverageEncoderDistance() {
         return (leftEncoder.getDistance() + rightEncoder.getDistance()) / 2;
     }
     
@@ -155,14 +154,18 @@ public class Drivetrain extends Subsystem {
      * Gets the speed in ft/sec, averaged from both encoders on the drivetrain.
      * @return The robot's speed in ft/sec.
      */
-    public double GetAverageEncoderRate() {
+    public double getAverageEncoderRate() {
         return (leftEncoder.getRate() + rightEncoder.getRate()) / 2;
     }
     
     /**
      * Resets the gyro to start counting from 0.
+     * 
+     * Only call this when we are absolutely sure of our heading!
+     * i.e. at the start of the match, NOT random points during auto
+     * use relative headings instead
      */
-    public void ResetGyro() {
+    public void resetGyro() {
         gyro.reset();
     }
     
@@ -170,7 +173,7 @@ public class Drivetrain extends Subsystem {
      * Gets the gyro angle, in degrees.
      * @return The gyro angle, in degrees.
      */
-    public double GetGyroAngle() {
+    public double getGyroAngle() {
         return gyro.getAngle();
     }
 

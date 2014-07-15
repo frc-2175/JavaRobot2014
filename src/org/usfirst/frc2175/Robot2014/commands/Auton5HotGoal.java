@@ -21,9 +21,9 @@ public class Auton5HotGoal extends CommandGroup {
     
     public  Auton5HotGoal() {
         
-        addSequential(new ArcadeDriveWithInputs(-1,0,1.25,true,true));
+        addSequential(new ArcadeDriveWithInputs(-1,0,1.25,true,0.0));
         
-        addSequential(new ArcadeDriveWithInputs(-0.5,0,0.5,true,false));
+        addSequential(new ArcadeDriveWithInputs(-0.5,0,0.5,true,0.0));
         
         addSequential(new MoveArmOut());
         

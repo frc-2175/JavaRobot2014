@@ -96,6 +96,7 @@ public class Robot extends IterativeRobot {
 
     public void autonomousInit() {
         System.out.println("Initializing autonomous");
+        drivetrain.resetGyro();
         enabledLights.set(true);
 	autonomousCommand = (Command)autoChooser.getSelected();
 //        autonomousCommand = new Auton3DoubleBlindShot();
@@ -107,7 +108,7 @@ public class Robot extends IterativeRobot {
      */
     public void autonomousPeriodic() {
         Scheduler.getInstance().run();
-        SmartDashboard.putNumber("Gyro Heading",Robot.drivetrain.GetGyroAngle());
+        SmartDashboard.putNumber("Gyro Heading",Robot.drivetrain.getGyroAngle());
 	if (oi.getGamepad().getRawButton(6))
 		System.out.println("-----------------------------------\n");
     }
@@ -134,7 +135,7 @@ public class Robot extends IterativeRobot {
 	SmartDashboard.putBoolean("Shooter Up", Robot.launcher.IsWinchUp());
 	SmartDashboard.putBoolean("Arm Out Switch 1", Robot.arm.IsArmSwitch1());
 	SmartDashboard.putBoolean("Arm Out Switch 2", Robot.arm.IsArmSwitch2());
-        SmartDashboard.putNumber("Gyro Heading",Robot.drivetrain.GetGyroAngle());
+        SmartDashboard.putNumber("Gyro Heading",Robot.drivetrain.getGyroAngle());
     }
 
     /**

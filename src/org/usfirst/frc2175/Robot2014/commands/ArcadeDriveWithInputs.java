@@ -24,7 +24,8 @@ public class  ArcadeDriveWithInputs extends Command {
     double turningSpeed;
     double timeoutTime;
     boolean shouldAutoSteer;
-    boolean shouldResetGyro;
+    //boolean shouldResetGyro;
+    double desiredHeading;
     
     /**
      * Drives the robot infinitely with specified inputs.
@@ -43,7 +44,7 @@ public class  ArcadeDriveWithInputs extends Command {
      * @param time The duration of time for driving. If 0 then the robot will drive infinitely.
      */
     public ArcadeDriveWithInputs(double forward, double turning, double time) {
-        this(forward, turning, time, false, false);
+        this(forward, turning, time, false, 0.0);
     }
     
     /**
@@ -54,7 +55,7 @@ public class  ArcadeDriveWithInputs extends Command {
      * @param autoSteer Whether to attempt to drive straight (using a gyro). If a turning value is provided then this will be treated as false.
      * @param resetGyro Whether to reset the gyro before running this command.
      */
-    public ArcadeDriveWithInputs(double forward, double turning, double time, boolean autoSteer, boolean resetGyro) {
+    public ArcadeDriveWithInputs(double forward, double turning, double time, boolean autoSteer, double desiredHeading) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
 	
@@ -66,7 +67,8 @@ public class  ArcadeDriveWithInputs extends Command {
 	turningSpeed = turning;
 	timeoutTime = time;
         shouldAutoSteer = autoSteer && (turningSpeed == 0); // If we are trying to turn, we disable autosteer to avoid confusion
-        shouldResetGyro = resetGyro;
+        //shouldResetGyro = resetGyro;
+        this.desiredHeading = desiredHeading;
 	if (timeoutTime > 0) {
             setTimeout(timeoutTime);
 	}
@@ -74,13 +76,13 @@ public class  ArcadeDriveWithInputs extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        if (shouldAutoSteer && shouldResetGyro) Robot.drivetrain.ResetGyro();
+        //if (shouldAutoSteer && shouldResetGyro) Robot.drivetrain.ResetGyro();
         System.out.println("Driving with inputs...\n");
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        Robot.drivetrain.ArcadeDriveWithParameters(forwardSpeed,turningSpeed,shouldAutoSteer);
+        Robot.drivetrain.arcadeDriveWithParameters(forwardSpeed,turningSpeed,shouldAutoSteer,desiredHeading);
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -94,7 +96,7 @@ public class  ArcadeDriveWithInputs extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-        Robot.drivetrain.ArcadeDriveWithParameters(0,0);
+        Robot.drivetrain.arcadeDriveWithParameters(0,0);
 	System.out.println("Done driving with inputs.\n\n");
     }
 

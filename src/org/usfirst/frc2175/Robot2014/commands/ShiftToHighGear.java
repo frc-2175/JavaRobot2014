@@ -35,7 +35,7 @@ public class  ShiftToHighGear extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        Robot.drivetrain.ShiftToGear(true);
+        Robot.drivetrain.shiftToGear(true);
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -45,7 +45,7 @@ public class  ShiftToHighGear extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-        Robot.drivetrain.ShiftToGear(false);
+        Robot.drivetrain.shiftToGear(false);
 	System.out.println("Done shifting to high gear.\n\n");
     }
 

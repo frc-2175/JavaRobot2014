@@ -22,9 +22,9 @@ public class Auton2BlindShot extends CommandGroup {
     public  Auton2BlindShot() {
         
 //        addSequential(new DriveForDistance(6)); // could do this with time delay
-        addSequential(new ArcadeDriveWithInputs(-1,0,1.25,true,true));
+        addSequential(new ArcadeDriveWithInputs(-1,0,1.25,true,0.0));
         
-        addSequential(new ArcadeDriveWithInputs(-0.5,0,0.5,true,false));
+        addSequential(new ArcadeDriveWithInputs(-0.5,0,0.5,true,0.0));
         
         addSequential(new MoveArmOut());
         
