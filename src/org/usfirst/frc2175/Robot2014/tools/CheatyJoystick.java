@@ -19,18 +19,19 @@ public class CheatyJoystick extends Joystick implements IInputOutput{
     
     private boolean isCheatyVision = true;
     
-    public CheatyJoystick(CheatyVision cv, int port) {
+    public CheatyJoystick(CheatyVision cv, int port, boolean enableCV) {
         super(port);
         m_cv = cv;
         m_port = port;
+        isCheatyVision = enableCV;
     }
     
-    public void disableCheatyVision() {
-        isCheatyVision = false;
+    public void setEnableCV(boolean enableCV) {
+        isCheatyVision = enableCV;
     }
     
-    public void enableCheatyVision() {
-        isCheatyVision = true;
+    public boolean getEnableCV() {
+        return isCheatyVision;
     }
     
     /* these next two are to pull individual buttons and axes out of the

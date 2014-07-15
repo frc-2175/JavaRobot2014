@@ -73,11 +73,13 @@ public class OI {
     public JoystickButton releaseLatchOverride;    
     public JoystickButton manualWinchDown;
     public JoystickButton manualWinchUp;
+    
+    private boolean enableCV = true;
 
     public OI() {
-        cv_base = new CheatyVision();
-        
-        gamepad = (Joystick)new CheatyJoystick(cv_base, 3);
+        cv_base = new CheatyVision(enableCV);
+                
+        gamepad = (Joystick)new CheatyJoystick(cv_base, 3, enableCV);
         releaseLatchOverride = new JoystickButton(gamepad, 11);
         releaseLatchOverride.whenPressed(new ReleaseLatch());
         shootAndReload = new JoystickButton(gamepad, 8);
@@ -95,14 +97,14 @@ public class OI {
         manualWinchDown = new JoystickButton(gamepad, 10);
         manualWinchDown.whileHeld(new UnwindWinch());
         
-        joystickRight = (Joystick)new CheatyJoystick(cv_base, 2);
+        joystickRight = (Joystick)new CheatyJoystick(cv_base, 2, enableCV);
         commandShiftButton = new JoystickButton(joystickRight, 1);
         commandShiftButton.whileHeld(new ShiftToHighGear());
         
-        joystickLeft = (Joystick)new CheatyJoystick(cv_base, 1);
+        joystickLeft = (Joystick)new CheatyJoystick(cv_base, 1, enableCV);
         tensionButton = new JoystickButton(joystickLeft, 1);
         tensionButton.whileHeld(new TensionLauncher());
-        
+
         // SmartDashboard Buttons
         SmartDashboard.putData("ShiftToHighGear", new ShiftToHighGear());
 
@@ -153,5 +155,17 @@ public class OI {
     public double getTurningSpeed() {
             return deadband(joystickRight.getX());
     //	return joystickRight.getX();
+    }
+    
+    public void setEnableCV(boolean enableCV) {
+        this.enableCV = enableCV;
+        ((CheatyJoystick)joystickLeft).setEnableCV(enableCV);
+        ((CheatyJoystick)joystickRight).setEnableCV(enableCV);
+        ((CheatyJoystick)gamepad).setEnableCV(enableCV);
+        cv_base.setEnabled(enableCV);
+    }
+    
+    public boolean getEnableCV() {
+        return this.enableCV;
     }
 }
