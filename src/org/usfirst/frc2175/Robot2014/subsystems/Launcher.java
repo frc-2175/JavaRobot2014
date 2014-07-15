@@ -49,7 +49,7 @@ public class Launcher extends Subsystem {
      * Returns whether the launcher is fully winched down and latched.
      * @return Whether the launcher is rully winched down and latched.
      */
-    public boolean IsShooterArmDown() {
+    public boolean isShooterArmDown() {
 	return !latchSwitch.get();
     }
     
@@ -57,7 +57,7 @@ public class Launcher extends Subsystem {
      * Returns whether the winch is unwound and ready for a shot.
      * @return whether the winch is unwound and ready for a shot.
      */
-    public boolean IsWinchUp() {
+    public boolean isWinchUp() {
         return !winchUpSwitch.get();
     }
     
@@ -65,7 +65,7 @@ public class Launcher extends Subsystem {
      * Runs the winch at a given speed.
      * @param speed How fast to run the winch, from -1 to 1.
      */
-    public void RunWinchAtSpeed(double speed) {
+    public void runWinchAtSpeed(double speed) {
             winchMotor.set(speed);
     }
     
@@ -74,7 +74,7 @@ public class Launcher extends Subsystem {
      * loaded, this will cause it to release, and possibly damage things!
      * @param release Whether the latch should be set to release or not.
      */
-    public void SetLatch(boolean release) {
+    public void setLatch(boolean release) {
             latch.set(release);
     }
     
@@ -82,7 +82,7 @@ public class Launcher extends Subsystem {
      * Sets the tension cylinder to a given state, to prepare for long shots.
      * @param tensioned Whether the launcher should be tensioned or not.
      */
-    public void SetTension(boolean tensioned) {
+    public void setTension(boolean tensioned) {
         if (tensioned) {
             tension.set(DoubleSolenoid.Value.kForward);
         } else {

@@ -39,7 +39,7 @@ public class  UnwindWinch extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        Robot.launcher.RunWinchAtSpeed(-.6);
+        Robot.launcher.runWinchAtSpeed(-.6);
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -49,13 +49,13 @@ public class  UnwindWinch extends Command {
 	} else if (timeoutOnly) {
             return isTimedOut();
         } else {
-            return Robot.launcher.IsWinchUp() || isTimedOut();
+            return Robot.launcher.isWinchUp() || isTimedOut();
 	}
     }
 
     // Called once after isFinished returns true
     protected void end() {
-        Robot.launcher.RunWinchAtSpeed(0);
+        Robot.launcher.runWinchAtSpeed(0);
 	System.out.println("Done unwinding the winch.\n\n");
     }
 

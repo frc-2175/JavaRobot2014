@@ -39,9 +39,9 @@ public class  WinchLauncherDown extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
         if (Robot.arm.isArmOut() || Robot.oi.shouldOverrideWinch()) {
-		Robot.launcher.RunWinchAtSpeed(1);
+		Robot.launcher.runWinchAtSpeed(1);
 	} else {
-		Robot.launcher.RunWinchAtSpeed(0);
+		Robot.launcher.runWinchAtSpeed(0);
 	}
     }
 
@@ -50,13 +50,13 @@ public class  WinchLauncherDown extends Command {
         if (Robot.oi.shouldOverrideWinch()) {
 		return false;
 	} else {
-		return Robot.launcher.IsShooterArmDown() || isTimedOut();
+		return Robot.launcher.isShooterArmDown() || isTimedOut();
 	}
     }
 
     // Called once after isFinished returns true
     protected void end() {
-        Robot.launcher.RunWinchAtSpeed(0);
+        Robot.launcher.runWinchAtSpeed(0);
 	System.out.println("Done winching launcher down.\n\n");
     }
 

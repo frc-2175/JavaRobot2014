@@ -35,7 +35,7 @@ public class  TensionLauncher extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        Robot.launcher.SetTension(true);
+        Robot.launcher.setTension(true);
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -45,7 +45,7 @@ public class  TensionLauncher extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-        Robot.launcher.SetTension(false);
+        Robot.launcher.setTension(false);
     }
 
     // Called when another command which requires one or more of the same

@@ -131,8 +131,8 @@ public class Robot extends IterativeRobot {
 	if (oi.getGamepad().getRawButton(6))
 		System.out.println("-----------------------------------\n");
         
-        SmartDashboard.putBoolean("Shooter Down", Robot.launcher.IsShooterArmDown());
-	SmartDashboard.putBoolean("Shooter Up", Robot.launcher.IsWinchUp());
+        SmartDashboard.putBoolean("Shooter Down", Robot.launcher.isShooterArmDown());
+	SmartDashboard.putBoolean("Shooter Up", Robot.launcher.isWinchUp());
 	SmartDashboard.putBoolean("Arm Out Switch 1", Robot.arm.isArmSwitch1());
 	SmartDashboard.putBoolean("Arm Out Switch 2", Robot.arm.isArmSwitch2());
         SmartDashboard.putNumber("Gyro Heading",Robot.drivetrain.getGyroAngle());
