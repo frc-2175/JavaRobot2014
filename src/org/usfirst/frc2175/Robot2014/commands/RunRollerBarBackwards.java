@@ -36,7 +36,7 @@ public class  RunRollerBarBackwards extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        Robot.arm.RunRollerBarAtSpeed(-.5);
+        Robot.arm.runRollerBarAtSpeed(-.5);
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -46,7 +46,7 @@ public class  RunRollerBarBackwards extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-        Robot.arm.RunRollerBarAtSpeed(0);
+        Robot.arm.runRollerBarAtSpeed(0);
 	System.out.println("Done running the roller bar backwards.\n\n");
     }
 

@@ -38,7 +38,7 @@ public class  ReleaseLatch extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        if ((Robot.arm.IsArmOut() && Robot.launcher.IsShooterArmDown() && Robot.launcher.IsWinchUp() && true /* isBall */) || Robot.oi.shouldOverrideLatch()) {
+        if ((Robot.arm.isArmOut() && Robot.launcher.IsShooterArmDown() && Robot.launcher.IsWinchUp() && true /* isBall */) || Robot.oi.shouldOverrideLatch()) {
 		Robot.launcher.SetLatch(true);
                 Robot.shootLights.set(true);
 	}

@@ -39,18 +39,18 @@ public class  MoveArmOut extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        Robot.arm.MoveArmToPosition(false);
-        Robot.arm.RunRollerBarAtSpeed(SmartDashboard.getNumber("Arm Out Roller Speed"));
+        Robot.arm.moveArmToPosition(false);
+        Robot.arm.runRollerBarAtSpeed(SmartDashboard.getNumber("Arm Out Roller Speed"));
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return Robot.arm.IsArmOut() || isTimedOut();
+        return Robot.arm.isArmOut() || isTimedOut();
     }
 
     // Called once after isFinished returns true
     protected void end() {
-        Robot.arm.RunRollerBarAtSpeed(0);
+        Robot.arm.runRollerBarAtSpeed(0);
         System.out.println("Done moving the arm out.\n\n");
     }
 

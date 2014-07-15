@@ -45,7 +45,7 @@ public class Arm extends Subsystem {
      * Moves the intake arm to a set position.
      * @param out Whether the arm should be out or not.
      */
-    public void MoveArmToPosition(boolean out) {
+    public void moveArmToPosition(boolean out) {
 	if (out) {
             armSolenoid.set(DoubleSolenoid.Value.kForward);
 	} else {
@@ -58,7 +58,7 @@ public class Arm extends Subsystem {
      * @param speed The speed, from -1 to 1, of the roller bar. Positive values
      * suck a ball in, negative values spit a ball out.
      */
-    public void RunRollerBarAtSpeed(double speed) {
+    public void runRollerBarAtSpeed(double speed) {
         rollerBar.set(speed);
     }
     
@@ -66,7 +66,7 @@ public class Arm extends Subsystem {
      * Gets the value of the right arm mag switch.
      * @return The value of the right arm mag switch.
      */
-    public boolean IsArmSwitch1() {
+    public boolean isArmSwitch1() {
         return !armOutSwitch1.get();
     }
     
@@ -74,7 +74,7 @@ public class Arm extends Subsystem {
      * Gets the value of the left arm mag switch.
      * @return The value of the left arm mag switch.
      */
-    public boolean IsArmSwitch2() {
+    public boolean isArmSwitch2() {
         return !armOutSwitch2.get();
     }
     
@@ -82,8 +82,8 @@ public class Arm extends Subsystem {
      * Checks the mag switches to see whether the arm is fully out.
      * @return Whether or not the intake arm is fully out.
      */
-    public boolean IsArmOut() {
-        return IsArmSwitch1() || IsArmSwitch2();
+    public boolean isArmOut() {
+        return isArmSwitch1() || isArmSwitch2();
     }
 }
 

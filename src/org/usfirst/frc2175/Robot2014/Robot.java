@@ -133,8 +133,8 @@ public class Robot extends IterativeRobot {
         
         SmartDashboard.putBoolean("Shooter Down", Robot.launcher.IsShooterArmDown());
 	SmartDashboard.putBoolean("Shooter Up", Robot.launcher.IsWinchUp());
-	SmartDashboard.putBoolean("Arm Out Switch 1", Robot.arm.IsArmSwitch1());
-	SmartDashboard.putBoolean("Arm Out Switch 2", Robot.arm.IsArmSwitch2());
+	SmartDashboard.putBoolean("Arm Out Switch 1", Robot.arm.isArmSwitch1());
+	SmartDashboard.putBoolean("Arm Out Switch 2", Robot.arm.isArmSwitch2());
         SmartDashboard.putNumber("Gyro Heading",Robot.drivetrain.getGyroAngle());
     }
 

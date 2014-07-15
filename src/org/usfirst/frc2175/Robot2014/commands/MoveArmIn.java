@@ -55,9 +55,9 @@ public class  MoveArmIn extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
         if (/* Robot.launcher.IsShooterArmDown() */ true || overrideSensors) { // The override was incredibly annoying
-		Robot.arm.MoveArmToPosition(true);
+		Robot.arm.moveArmToPosition(true);
 	} else {
-		Robot.arm.MoveArmToPosition(false);
+		Robot.arm.moveArmToPosition(false);
 	}
     }
 
