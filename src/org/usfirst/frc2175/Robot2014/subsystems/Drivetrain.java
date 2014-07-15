@@ -19,7 +19,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
-import org.usfirst.frc2175.Robot2014.PIDOut;
+import org.usfirst.frc2175.Robot2014.tools.PIDOut;
 //import static org.usfirst.frc2175.Robot2014.RobotMap.drivetrainGyro;
 //import static org.usfirst.frc2175.Robot2014.RobotMap.drivetrainLeftEncoder;
 
