@@ -31,12 +31,14 @@ public class Auton7GoalieAvoidance extends CommandGroup {
         
         addSequential(new Delay(0.3));
         
-        addSequential(new WaitForHotGoal());
+//        addSequential(new WaitForHotGoal());
 //        addSequential(new Delay(1));
         
-        Random rand = new Random();
-        int sign = (rand.nextInt(2) == 1 ? 1 : -1);
-        addSequential(new ArcadeDriveWithInputs(0,sign * 0.7,0.125,false,false));
+//        Random rand = new Random();
+//        int sign = (rand.nextInt(2) == 1 ? 1 : -1);
+//        addSequential(new ArcadeDriveWithInputs(0,sign * 0.7,0.125,false,false));
+        
+        addSequential(new TurnToAvoidGoalie());
         
         addSequential(new Shoot());
 
