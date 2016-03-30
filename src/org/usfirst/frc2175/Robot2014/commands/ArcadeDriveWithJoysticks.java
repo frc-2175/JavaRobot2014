@@ -21,8 +21,6 @@ import edu.wpi.first.wpilibj.smartdashboard.*;
  * This is intended for Teleop use.
  */
 public class  ArcadeDriveWithJoysticks extends Command {
-
-    private Ramp forwardRamp;
     
     public ArcadeDriveWithJoysticks() {
         // Use requires() here to declare subsystem dependencies
@@ -36,9 +34,6 @@ public class  ArcadeDriveWithJoysticks extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
         System.out.println("Driving with joysticks...");
-        
-        forwardRamp = new Ramp(SmartDashboard.getNumber("Ramping Max_Delta"));
-        forwardRamp.init();
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -46,17 +41,7 @@ public class  ArcadeDriveWithJoysticks extends Command {
         double forwardValue = Robot.oi.getForwardSpeed();
         double turningValue = Robot.oi.getTurningSpeed();
         
-        double rampedForward = forwardRamp.rampInput(forwardValue);
-        
-        if (Robot.oi.getJoystickLeft().getRawButton(4) && Robot.oi.getJoystickRight().getRawButton(5)) {
-            Robot.drivetrain.ArcadeDriveWithParameters(forwardValue, turningValue);
-        } else {
-            Robot.drivetrain.ArcadeDriveWithParameters(rampedForward, turningValue);
-        }
-        if (Robot.oi.getJoystickRight().getRawButton(3)) {
-            forwardRamp = new Ramp(SmartDashboard.getNumber("Ramping Max_Delta"));
-            forwardRamp.init();
-        }
+        Robot.drivetrain.ArcadeDriveWithParameters(forwardValue, turningValue);
     }
 
     // Make this return true when this Command no longer needs to run execute()
