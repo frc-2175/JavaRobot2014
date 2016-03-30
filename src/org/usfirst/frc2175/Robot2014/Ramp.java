@@ -14,7 +14,9 @@ public class Ramp {
         output = input;
     }
     
-    public void init() { this.init(0); }
+    public void init() { 
+        this.init(0); 
+    }
 
     public double rampInput(double input) {
         // compute prevTime since last iteration.... newTime - prevTime
